@@ -1,0 +1,91 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.loging-page {
+    display: flex;
+    height: 100vh;
+}
+
+.logingpage-leftside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+    text-align: center;
+    width: 60%;
+    background-color: #f5f5f5;
+}
+
+/* Right side styling */
+.logingpage-rightside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 10%;
+    background-color: white;
+}
+
+.logingpage-rightside .heading-1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .logingpage-rightside .heading-2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #888;
+    margin-bottom: 30px;
+  }
+
+  /* Form styling */
+.logingpage-rightside form {
+    display: flex;
+    flex-direction: column;
+  }
+
+.logingpage-rightside input[type="text"],
+.logingpage-rightside input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.logingpage-rightside button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+.logingpage-rightside button:hover {
+    background-color: #333;
+  }
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logingpage-rightside a {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: left;
+  }
+  
+.logingpage-rightside a:hover {
+    text-decoration: underline;
+    color: #007bff;
+  } 
+
