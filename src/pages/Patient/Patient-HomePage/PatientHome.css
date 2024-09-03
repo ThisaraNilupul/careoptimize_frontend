@@ -1,0 +1,11 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.patientHome {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
