@@ -1,0 +1,26 @@
+.app-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+  
+  
+  .content {
+    padding: 2%;
+    flex: 1;
+    margin-left: 240px;
+    width:100%; 
+    min-height: 100vh;
+    background-color: #ffffff;
+  }
+
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .auth-content {
+    width: 100%;
+  }
