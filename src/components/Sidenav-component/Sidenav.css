@@ -39,7 +39,7 @@
   
   .side-nav li a:hover {
     height: 20px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     color: rgba(255, 52, 52, 1);
     background-color: #ffffff;
   }
