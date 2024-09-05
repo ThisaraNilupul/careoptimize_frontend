@@ -1,16 +1,22 @@
 .app-container {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     height: 100vh;
   }
-  
+
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   
   .content {
-    padding: 2%;
     flex: 1;
+    margin-top: 50px;
     margin-left: 240px;
-    width:100%; 
-    min-height: 100vh;
+    padding: 2%;
+    /* width:100%;  */
+    /* min-height: 100vh; */
     background-color: #ffffff;
   }
 

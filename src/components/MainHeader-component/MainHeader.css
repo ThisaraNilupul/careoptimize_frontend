@@ -1,0 +1,32 @@
+.mainheader {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    width: calc(100% - 240px);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+.mainheader-left h2 {
+    margin: 0;
+  }
+  
+  .mainheader-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
+  
+  .notification-icon {
+    font-size: 20px;
+    margin-left: 20px;
+  }
