@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Sidenav from "./components/Sidenav-component/Sidenav";
+import MainHeader from './components/MainHeader-component/MainHeader';
 import { AppRoutes } from './common/AppRoutes';
 import './App.css';
 
@@ -43,12 +44,15 @@ function App() {
   return (
     <div className={isAuthPage() ? 'auth-container' : 'app-container'}>
       {shouldShowSidebar() && <Sidenav menu={menuItems} />}
-      <div className={isAuthPage() ? 'auth-content' : 'content'}>
-        <Routes>
-          {AppRoutes.map((route, i) => (
-            <Route key={i} path={route.path} element={route.component} />
-          ))}
-        </Routes>
+      <div className='main-layout'>
+        {!isAuthPage() && <MainHeader />}
+        <div className={isAuthPage() ? 'auth-content' : 'content'}>
+          <Routes>
+            {AppRoutes.map((route, i) => (
+              <Route key={i} path={route.path} element={route.component} />
+            ))}
+          </Routes>
+        </div>
       </div>
     </div>
   );

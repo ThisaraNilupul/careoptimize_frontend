@@ -5,7 +5,7 @@ const Card = ({ width, height, children }) => {
     const style = {
         width: width || 'auto',
         height: height || 'auto',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#ffffff',
         borderRadius: '10px',
         padding: '20px',
         minwidth: '50%',
