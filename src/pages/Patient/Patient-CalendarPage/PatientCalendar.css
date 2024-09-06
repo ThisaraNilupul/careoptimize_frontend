@@ -1,0 +1,29 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.patient-calendar-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+
+  .view-switch {
+    display: flex;
+    gap: 10px;
+  }
+
+
+  .rbc-toolbar-label {
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .button.rbc {
+    background-color: aqua;
+  }
+
