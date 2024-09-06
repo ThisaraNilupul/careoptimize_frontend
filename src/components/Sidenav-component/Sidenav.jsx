@@ -13,8 +13,9 @@ const Sidenav = ({menu}) => {
       <ul>
         {menu.map((item, index) => (
             <li key={index}>
-                <Link to={item.path} activeClassName="active">
-                    {item.name}
+                <Link to={item.path} activeClassName="active" >
+                    <span className="icon"> {React.cloneElement(item.icon, { size: 19, color: "#333", })}</span>
+                    <span className="item-name">{item.name}</span>
                 </Link>
             </li>
         ))}

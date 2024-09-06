@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { CiHome, CiCircleList, CiViewList, CiBellOn, CiCalendar, CiMedicalCross } from "react-icons/ci";
 import Sidenav from "./components/Sidenav-component/Sidenav";
 import MainHeader from './components/MainHeader-component/MainHeader';
 import { AppRoutes } from './common/AppRoutes';
@@ -17,12 +18,12 @@ function App() {
 
     if (role === 'patient') {
       setMenuItems([
-        { name: 'Home', path: '/patient/home' },
-        { name: 'Appointments', path: '/patient/appointments' },
-        { name: 'Medical History', path: '/patient/medical-history' },
-        { name: 'Notifications', path: '/patient/notifications' },
-        { name: 'Calendar', path: '/patient/calendar' },
-        { name: 'Emergency', path: '/patient/emergency' },
+        { name: 'Home', path: '/patient/home', icon: <CiHome /> },
+        { name: 'Appointments', path: '/patient/appointments', icon: <CiCircleList /> },
+        { name: 'Medical History', path: '/patient/medical-history', icon: <CiViewList /> },
+        { name: 'Notifications', path: '/patient/notifications', icon: <CiBellOn /> },
+        { name: 'Calendar', path: '/patient/calendar', icon: <CiCalendar /> },
+        { name: 'Emergency', path: '/patient/emergency', icon: <CiMedicalCross /> },
       ]);
     } else if (role === 'doctor') {
       // Add Doctor-specific routes here
