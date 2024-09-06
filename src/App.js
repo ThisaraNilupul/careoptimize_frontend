@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { CiHome, CiCircleList, CiViewList, CiBellOn, CiCalendar, CiMedicalCross } from "react-icons/ci";
+import { CiHome, CiCircleList, CiViewList, CiBellOn, CiCalendar, CiMedicalCross, CiUser } from "react-icons/ci";
 import Sidenav from "./components/Sidenav-component/Sidenav";
 import MainHeader from './components/MainHeader-component/MainHeader';
 import { AppRoutes } from './common/AppRoutes';
@@ -24,6 +24,7 @@ function App() {
         { name: 'Notifications', path: '/patient/notifications', icon: <CiBellOn /> },
         { name: 'Calendar', path: '/patient/calendar', icon: <CiCalendar /> },
         { name: 'Emergency', path: '/patient/emergency', icon: <CiMedicalCross /> },
+        { name: 'Profile', path: '/patient/profile', icon: <CiUser /> },
       ]);
     } else if (role === 'doctor') {
       // Add Doctor-specific routes here
