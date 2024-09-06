@@ -11,19 +11,12 @@
     gap: 20px;
   }
   
-
   .view-switch {
     display: flex;
     gap: 10px;
   }
 
-
   .rbc-toolbar-label {
     font-size: 1.5rem;
     color: #333;
   }
-
-  .button.rbc {
-    background-color: aqua;
-  }
-
