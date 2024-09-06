@@ -28,7 +28,7 @@ const PatientCalendar = () => {
                 endAccessor="end"
                 defaultView={view}
                 views={['month', 'week']}
-                style={{ height: 510, margin: '5px' }}
+                style={{ height: 508, margin: '5px' }}
                 eventPropGetter={(event) => ({
                     style: {
                     backgroundColor: '#ff8a65',
