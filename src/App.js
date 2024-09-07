@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { CiHome, CiCircleList, CiViewList, CiBellOn, CiCalendar, CiMedicalCross, CiUser } from "react-icons/ci";
+import { CiHome, CiCircleList, CiViewList, CiBellOn, CiCalendar, CiMedicalCross, CiUser, CiPillsBottle1 } from "react-icons/ci";
 import Sidenav from "./components/Sidenav-component/Sidenav";
 import MainHeader from './components/MainHeader-component/MainHeader';
 import { AppRoutes } from './common/AppRoutes';
@@ -20,6 +20,7 @@ function App() {
       setMenuItems([
         { name: 'Home', path: '/patient/home', icon: <CiHome /> },
         { name: 'Appointments', path: '/patient/appointments', icon: <CiCircleList /> },
+        { name: 'Ongoing Treatment', path: '/patient/ongoing-treatment', icon: <CiPillsBottle1 /> },
         { name: 'Medical History', path: '/patient/medical-history', icon: <CiViewList /> },
         { name: 'Notifications', path: '/patient/notifications', icon: <CiBellOn /> },
         { name: 'Calendar', path: '/patient/calendar', icon: <CiCalendar /> },
