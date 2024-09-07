@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CiLogout } from "react-icons/ci";
+
 import './Sidenav.css';
 import { ReactComponent as Logo } from '../../assets/Logo1.svg';
 
@@ -19,6 +21,12 @@ const Sidenav = ({menu}) => {
                 </Link>
             </li>
         ))}
+        <li className='logout'>
+          <Link>
+            <span className="icon"> {React.cloneElement(<CiLogout />, { size: 19, color: "#333", })}</span>
+            <span className="item-name">Logout</span>
+          </Link>
+        </li>
       </ul>
     </nav>
   )
