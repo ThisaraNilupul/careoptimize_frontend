@@ -7,7 +7,7 @@ import PatientCalendar from '../pages/Patient/Patient-CalendarPage/PatientCalend
 import PatientOngoingTreatment from '../pages/Patient/Patient-OngoingTreatmentPage/PatientOngoingTreatment';
 
 export const AppRoutes = [
-  { path: '/Login', component: <LoginPage /> },
+  { path: '/login', component: <LoginPage /> },
   { path: '/signup', component: <RegisterPage /> },
   { path: '/patient/home', component: <PatientHome /> },
   { path: '/patient/appointments', component: <PatientAppointment /> },
