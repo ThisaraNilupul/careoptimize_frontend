@@ -36,12 +36,12 @@ function App() {
 
   const shouldShowSidebar = () => {
     const { pathname } = location;
-    return !['/Login', '/signup'].includes(pathname);
+    return !['/login', '/signup'].includes(pathname);
   };
 
   const isAuthPage = () => {
     const { pathname } = location;
-    return ['/Login', '/signup'].includes(pathname);
+    return ['/login', '/signup'].includes(pathname);
   };
 
   return (
