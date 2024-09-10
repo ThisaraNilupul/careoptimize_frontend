@@ -1,0 +1,63 @@
+.notification-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    height: auto;
+    padding: 8px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    color: #1e281e;
+    font-family: 'Arial', sans-serif;
+    transition: transform 5s ease-in-out opacity 1s ease-in-out;
+}
+  
+.notification-container .icon {
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.notification-container .message {
+    flex-grow: 1;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.notification-container .close {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 15px;
+}
+  
+.notification-container .close:hover {
+    color: lightgray;
+}
+
+.notification-container-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+  
+.notification-container-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 5s ease, opacity 0.5s ease;
+}
+
+.notification-container-exit {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-container-exit-active {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 5s ease, opacity 0.5s ease;
+}
+  
