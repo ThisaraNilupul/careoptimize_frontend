@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import LoadingLeft from '../../components/loading-left-component/LoadingLeft';
 import './LogingPage.css';
 
@@ -8,6 +9,7 @@ function LogingPage() {
     username: '',
     password: ''
   });
+  const navigate = useNavigate();
 
   const { username, password } = formData;
 
@@ -24,12 +26,22 @@ function LogingPage() {
       console.log('Token: ', token);
       localStorage.setItem('token', token);
       alert('Login Successfull..!');
+      navigate('/patient/home');
 
     } catch (error) { 
-      
-        console.error('Error Response:', error.response.data);
-        alert('Login Failed: ' + (error.response.data.error[{}].msg || 'Unknown error occurred.'));
-      
+
+      if (error.response && error.response.data && error.response.data.error) {
+        const errors = error.response.data.error;
+        let errorMsg = '';
+        errors.forEach(err => {
+          errorMsg += `${err.msg}\n`;
+        });
+        
+        alert('Login Failed...! \n' + errorMsg);
+      } else {
+        console.error('Login error:', error);
+        alert('Login Failed: Network error or server is down.');
+      }    
     }
   }
 
