@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import LoadingLeft from '../../components/loading-left-component/LoadingLeft';
+import Notification from '../../components/AlertNotification-component/Notification';
 import './LogingPage.css';
 
 function LogingPage() {
@@ -9,6 +10,7 @@ function LogingPage() {
     username: '',
     password: ''
   });
+  const [notification, setNotification] = useState(null);
   const navigate = useNavigate();
 
   const { username, password } = formData;
@@ -21,29 +23,42 @@ function LogingPage() {
 
     try{
       const response = await axios.post('http://localhost:5000/api/patient/login', { username, password});
-      console.log('Response from server:', response.data);
+      // console.log('Response from server:', response.data);
       const { token } = response.data;
-      console.log('Token: ', token);
+      // console.log('Token: ', token);
       localStorage.setItem('token', token);
-      alert('Login Successfull..!');
-      navigate('/patient/home');
-
+      setNotification({
+        status: 'success',
+        message: 'Login Successful...!',
+        backgroundColor: 'rgba(117, 248, 132, 1)',
+      })
+      setTimeout(() => {
+        navigate('/patient/home');
+      }, 500);
     } catch (error) { 
-
       if (error.response && error.response.data && error.response.data.error) {
         const errors = error.response.data.error;
-        let errorMsg = '';
         errors.forEach(err => {
-          errorMsg += `${err.msg}\n`;
+          setNotification({
+            status: 'failed',
+            message: err.msg,
+            backgroundColor: 'rgba(248, 117, 117, 1)',
+          })
         });
-        
-        alert('Login Failed...! \n' + errorMsg);
       } else {
-        console.error('Login error:', error);
-        alert('Login Failed: Network error or server is down.');
+        // console.error('Login error:', error);
+        setNotification({
+          status: 'failed',
+          message: 'Login Failed: Network error or server is down',
+          backgroundColor: 'rgba(248, 117, 117, 1)',
+        })
       }    
     }
   }
+
+  const closeNotification = () => {
+    setNotification(null);
+  };
 
   return (
     <div className='loging-page'>
@@ -63,6 +78,16 @@ function LogingPage() {
               <a href='registerpage'>Register</a>
             </div>
       </div>
+      {notification && (
+        <Notification 
+            status={notification.status}
+            message={notification.message}
+            height={notification.height}
+            width={notification.width}
+            backgroundColor={notification.backgroundColor}
+            onClose={closeNotification}
+        />
+      )}
     </div>
   )
 }
