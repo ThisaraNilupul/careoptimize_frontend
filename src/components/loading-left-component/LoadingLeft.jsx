@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Logo } from '../../assets/LoadingLogo.svg';
+import { ReactComponent as Logo } from '../../assets/mainsvg.svg';
 import './LoadingLeft.css';
 
 function LoadingLeft() {

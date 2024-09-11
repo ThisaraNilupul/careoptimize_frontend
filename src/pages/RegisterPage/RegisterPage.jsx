@@ -86,7 +86,7 @@ function RegisterPage() {
             <BaseForm fields={getField()} onSubmit={handleSubmit} />
             <div className='Registerpagelinks'>
               <p>allready have an account</p>
-              <a href='registerpage'>Log in</a>
+              <a href='/login'>Log in</a>
             </div>
         </div>
     </div>

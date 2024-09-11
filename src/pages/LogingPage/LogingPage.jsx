@@ -75,7 +75,7 @@ function LogingPage() {
             </form>
             <div className='links'>
               <a href='#'>Forgot your password?</a>
-              <a href='registerpage'>Register</a>
+              <a href='/signup'>Register</a>
             </div>
       </div>
       {notification && (
