@@ -5,6 +5,7 @@ import RegisterPage from '../pages/RegisterPage/RegisterPage';
 import PatientAppointment from '../pages/Patient/Patient-AppointmentPage/PatientAppointment';
 import PatientCalendar from '../pages/Patient/Patient-CalendarPage/PatientCalendar';
 import PatientOngoingTreatment from '../pages/Patient/Patient-OngoingTreatmentPage/PatientOngoingTreatment';
+import PatientProfile from '../pages/Patient/Patient-ProfilePage/PatientProfile';
 
 export const AppRoutes = [
   { path: '/login', component: <LoginPage /> },
@@ -15,4 +16,5 @@ export const AppRoutes = [
 //   { path: '/patient/notifications', component: <PatientNotifications /> },
   { path: '/patient/calendar', component: <PatientCalendar /> },
 //   { path: '/patient/emergency', component: <PatientEmergency /> },
+  { path: '/patient/profile', component: <PatientProfile />}
 ];
