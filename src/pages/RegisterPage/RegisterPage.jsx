@@ -1,74 +1,108 @@
 import React, {useState} from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './RegisterPage.css';
 import LoadingLeft from '../../components/loading-left-component/LoadingLeft';
-import BaseForm from '../../components/BaseForm-component/BaseForm';
+import Notification from '../../components/AlertNotification-component/Notification';
 
 function RegisterPage() {
   const [role, setRole] = useState('patient');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '', 
+    addressNo: '',
+    street: '',
+    city: '',
+    province: '',
+    nic: '', 
+    phoneNumber: '', 
+    email: '', 
+    birthday: '',
+    gender: '',
+    username: '', 
+    password: ''
+  });
+  const [notification, setNotification] = useState(null);
+  const navigate = useNavigate();
 
   const handleRoleChange = (e) => {
     setRole(e.target.value);
   };
 
-  const getField = () => {
-    switch (role) {
-      case 'doctor':
-        return [
-          { label: 'First Name', type: 'text', placeholder: 'First Name' },
-          { label: 'Last Name', type: 'text', placeholder: 'Last Name' },
-          { label: 'Specialty', type: 'text', placeholder: 'Specialty' },
-          { label: 'Phone Number', type: 'text', placeholder: 'Phone Number' },
-          { label: 'Email', type: 'email', placeholder: 'Email' },
-          { label: 'Department', type: 'text', placeholder: 'Department' },
-          { label: 'Years of Experience', type: 'number', placeholder: 'Years of Experience' },
-          { label: 'License Number', type: 'text', placeholder: 'License Number' },
-          { label: 'Consultation Hours', type: 'text', placeholder: 'Consultation Hours' },
-          { label: 'Room Number', type: 'text', placeholder: 'Room Number' },
-          { label: 'User Name', type: 'text', placeholder: 'Username'},
-          { label: 'Password', type: 'password', placeholder: 'Password'},
-        ];
+  const { firstName,
+          lastName, 
+          addressNo,
+          street,
+          city,
+          province,
+          nic, 
+          phoneNumber, 
+          email, 
+          birthday,
+          gender,
+          username, 
+          password } = formData;
 
-      case 'staff':
-        return [
-          { label: 'First Name', type: 'text', placeholder: 'First Name' },
-          { label: 'Last Name', type: 'text', placeholder: 'Last Name' },
-          { label: 'Role', type: 'text', placeholder: 'Role' },
-          { label: 'Phone Number', type: 'text', placeholder: 'Phone Number' },
-          { label: 'Email', type: 'email', placeholder: 'Email' },
-          { label: 'Department', type: 'text', placeholder: 'Department' },
-          { label: 'Employment Date', type: 'date', placeholder: 'Employment Date' },
-          { label: 'Shift', type: 'text', placeholder: 'Shift' },
-          { label: 'Supervisor ID', type: 'text', placeholder: 'Supervisor ID' },
-          { label: 'User Name', type: 'text', placeholder: 'Username'},
-          { label: 'Password', type: 'password', placeholder: 'Password'},
-        ];  
+  const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
+  console.log('formdata', formData);
 
-      case 'patient':
-      default:
-        return [
-          { label: 'First Name', type: 'text', placeholder: 'First Name' },
-          { label: 'Last Name', type: 'text', placeholder: 'Last Name' },
-          { label: 'Date of Birth', type: 'date', placeholder: 'Date of Birth' },
-          { label: 'Gender', type: 'text', placeholder: 'Gender' },
-          { label: 'Address', type: 'text', placeholder: 'Address' },
-          { label: 'Phone Number', type: 'text', placeholder: 'Phone Number' },
-          { label: 'Email', type: 'email', placeholder: 'Email' },
-          { label: 'Medical History', type: 'text', placeholder: 'Medical History' },
-          { label: 'Allergies', type: 'text', placeholder: 'Allergies' },
-          { label: 'Blood Type', type: 'text', placeholder: 'Blood Type' },
-          { label: 'Emergency Contact Name', type: 'text', placeholder: 'Emergency Contact Name' },
-          { label: 'Emergency Contact Phone', type: 'text', placeholder: 'Emergency Contact Phone' },
-          { label: 'Insurance Provider', type: 'text', placeholder: 'Insurance Provider' },
-          { label: 'Insurance Policy Number', type: 'text', placeholder: 'Insurance Policy Number' },
-          { label: 'User Name', type: 'text', placeholder: 'Username'},
-          { label: 'Password', type: 'password', placeholder: 'Password'},
-        ];
-    }
-  };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
       e.preventDefault();
+
+      try{
+        const response = await axios.post('http://localhost:5000/api/patient/register', 
+          {
+            firstName,
+            lastName, 
+            addressNo,
+            street,
+            city,
+            province,
+            nic, 
+            phoneNumber, 
+            email, 
+            birthday,
+            gender,
+            username, 
+            password
+          });
+          console.log('response', response);
+          const {token} = response.data;
+          localStorage.setItem('token', token);
+          setNotification({
+            status: 'success',
+            message: response.data.msg || 'Registration successful',
+            backgroundColor: 'rgba(117, 248, 132, 1)',
+          })
+          setTimeout(() => {
+            navigate('/login');
+          }, 500);
+      } catch (error) {
+        let errorMessage = 'An error occurred. Please try again.';
+    
+        if (error.response) {
+          if (error.response.data && error.response.data.error) {
+            // If it's an array of errors, take the first one
+            errorMessage = error.response.data.error[0]?.msg || errorMessage;
+          } else if (typeof error.response.data === 'string') {
+            // If it's a string message, use it directly
+            errorMessage = error.response.data;
+          }
+        }
+
+        setNotification({
+          status: 'failed',
+          message: errorMessage,  // Ensure this is a string
+          backgroundColor: 'rgba(248, 117, 117, 1)',
+        });
+      }
   }
+
+  const closeNotification = () => {
+    setNotification(null);
+  };
 
   return (
     <div className='Register-page'>
@@ -83,12 +117,39 @@ function RegisterPage() {
               <option value="doctor">Doctor</option>
               <option value="staff">Staff</option>
             </select>
-            <BaseForm fields={getField()} onSubmit={handleSubmit} />
+            <form onSubmit={handleSubmit} className='baseForm'>
+                <div className="scrollable-container">
+                  <input type='text' name='firstName' value={firstName} onChange={onChange} placeholder='First name' required/>
+                  <input type='text' name='lastName' value={lastName} onChange={onChange} placeholder='Last name' required/>
+                  <input type='text' name='addressNo' value={addressNo} onChange={onChange} placeholder='AddressNo'required/>
+                  <input type='text' name='street' value={street} onChange={onChange} placeholder='Street' required/>
+                  <input type='text' name='city' value={city} onChange={onChange} placeholder='City' required/>
+                  <input type='text' name='province' value={ province} onChange={onChange} placeholder='Province' required/>
+                  <input type='text' name='nic' value={nic} onChange={onChange} placeholder='NIC' required/>
+                  <input type='text' name='phoneNumber' value={phoneNumber} onChange={onChange} placeholder='PhoneNo' required/>
+                  <input type='text' name='email' value={email} onChange={onChange} placeholder='Email' required/>
+                  <input type='date' name='birthday' value={birthday} onChange={onChange} placeholder='Birthday' required/>
+                  <input type='text' name='gender' value={gender} onChange={onChange} placeholder='Gender' required/>
+                  <input type='text' name='username' value={username} onChange={onChange} placeholder='Username' required/>
+                  <input type='password' name='password' value={password} onChange={onChange} placeholder='Password' required/>  
+                </div>    
+                <button type="submit">Register</button>
+            </form>
             <div className='Registerpagelinks'>
               <p>allready have an account</p>
               <a href='/login'>Log in</a>
             </div>
         </div>
+        {notification && (
+        <Notification 
+            status={notification.status}
+            message={notification.message}
+            height={notification.height}
+            width={notification.width}
+            backgroundColor={notification.backgroundColor}
+            onClose={closeNotification}
+        />
+      )}
     </div>
   )
 }

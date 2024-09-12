@@ -60,6 +60,45 @@
   background-color: #f8f8f8;
 }
 
+ /* Form styling */
+ .baseForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.baseForm .scrollable-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.baseForm  input[type="text"],
+.baseForm  input[type="email"],
+.baseForm  input[type="date"],
+.baseForm  input[type="number"],
+.baseForm  input[type="password"] {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.baseForm button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.baseForm button:hover {
+    background-color: #333;
+}  
+
 .Registerpagelinks {
     display: flex;
     justify-content: space-between;
