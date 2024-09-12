@@ -8,7 +8,7 @@ const BaseForm = ({ fields, onSubmit}) => {
                 {fields.map((field, index) => (
                     <div key={index}>
                         {/* <label>{field.label}</label> */}
-                        <input type={field.type} placeholder={field.placeholder} />
+                        <input type={field.type} name={field.name} value={''} placeholder={field.placeholder} required/>
                     </div>
                 ))}
             </div>    
