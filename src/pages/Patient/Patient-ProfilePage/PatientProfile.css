@@ -4,10 +4,127 @@
     box-sizing: border-box;
 }
 
-.patient-profile-container {
+.patient-profile {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.patient-profile-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.patient-profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+.patient-profile-container .card-title{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 2%;
+}
+
+.patient-profile-container .card-content,
+.popup .card-content
+{
+    padding: 0px 15px 0 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.patient-profile-container .card-content .content-item .card-title .button-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+  
+.patient-profile-container .card-content .content-item, 
+.popup .card-content .content-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.patient-profile-container .card-content .content-item .item-name, 
+.popup .card-content .content-item .item-name{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.patient-profile-container .card-content .content-item .item-value, 
+.popup .card-content .content-item .item-value{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.patient-profile-container .card-content .content-item .item-scrollable{
+    max-height: 30vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.patient-profile-container .relativecard-content .relativecontent-item .relative {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
+  .popup-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .popup form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .popup form .form-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .popup form .form-item label {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  .popup input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popup .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7%;
+}
