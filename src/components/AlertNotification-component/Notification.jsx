@@ -15,7 +15,7 @@ const Notification = ({status, message, backgroundColor, onClose}) => {
     return (
         <div className="notification-container" style={{backgroundColor: backgroundColor}}>
             <div className="icon">
-                {status === 'sucess' ? <TfiFaceSmile /> : <TfiFaceSad />}
+                {status === 'sucess' ? <TfiFaceSad />: <TfiFaceSmile />}
             </div>
             <div className="message">{message}</div>
             <div className="close" onClick={onClose}><TfiClose /></div>

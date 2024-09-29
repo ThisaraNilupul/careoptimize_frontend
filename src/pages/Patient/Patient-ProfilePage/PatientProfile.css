@@ -69,12 +69,21 @@
 }
 
 .patient-profile-container .card-content .content-item .item-scrollable{
-    max-height: 30vh;
+    max-height: 11vh;
     overflow-y: auto;
     padding-right: 10px;
 }
 
+.patient-profile-container .card-content .content-item .item-scrollable .health-issue-item {
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
 .patient-profile-container .relativecard-content .relativecontent-item .relative {
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -127,4 +136,66 @@
     align-items: center;
     justify-content: center;
     margin-top: 7%;
+}
+
+.popup .PIedit-savebutton,
+.popup .relative-savebutton {
+    margin-top: 14%;
+}
+
+.popup .card-content .relativebutton-group{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17%;
+    margin-left: 79%;
+}
+
+.popup .popup-content {
+    max-height: 47vh;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.popup .popup-content .health-issue {
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup .popup-content .health-issue .item-name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.popup .popup-content .health-issue .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.popup form .healthissueform-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup form .healthissueform-item label {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.popup form .healthissueform-item textarea[type="text"] {
+    width: 47vw;
+    height: 29vh;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} 
+
+.popup form .healthissueadd-button {
+    margin-top: 10%;
+    margin-left: 35%;
 }
