@@ -1,6 +1,7 @@
 .custom-button {
   padding: 10px;
   font-size: 1rem;
+  letter-spacing: 1px;
   background-color:#1e281e;
   color: rgb(255, 255, 255);
   border: none;
