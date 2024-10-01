@@ -11,6 +11,37 @@
     gap: 20px;
   }
 
+.patient-OngoingTreatment-container .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}  
+
+.card-container .card-item{
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.card-item .itemname {
+    font-weight: 500;
+    color: #333;
+}
+
+.card-item .itemvalue {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.card-container .card-button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .popup .header-title {
     margin-bottom: 2%;
     display: flex;
