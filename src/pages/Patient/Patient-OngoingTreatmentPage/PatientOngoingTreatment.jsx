@@ -22,6 +22,33 @@ function PatientOngoingTreatment() {
   return (
     <div className='patient-OngoingTreatment-container'>
       <Button text="New Treatment" height="40px" width="300px" className="add-event-button" onClick={handleOpneNewTreatment} />
+      <div className='card-container'>
+        <Card width="390px" height="200px">
+          <div className='card-item'>
+            <div className='itemname'>Treatment Id</div>
+            <div className='itemvalue'>001</div>
+          </div>
+          <div className='card-item'>
+            <div className='itemname'>Diagnosis Name</div>
+            <div className='itemvalue'></div>
+          </div>
+          <div className='card-item'>
+            <div className='itemname'>Start Date</div>
+            <div className='itemvalue'></div>
+          </div>
+          <div className='card-item'>
+            <div className='itemname'>End Date</div>
+            <div className='itemvalue'></div>
+          </div>
+          <div className='card-item'>
+            <div className='itemname'>Days to Complete</div>
+            <div className='itemvalue'></div>
+          </div>
+          <div className='card-button'>
+            <SubTextButton text="Open" height="28px" width="100px"/>
+          </div>
+        </Card>
+      </div>
       {isOpneNewTreatmentForm && (
         <div className="popup">
           <Card width="50%" height="95vh">
