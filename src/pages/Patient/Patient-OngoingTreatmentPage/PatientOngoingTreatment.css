@@ -17,31 +17,6 @@
     gap: 20px;
 }  
 
-.card-container .card-item{
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-}
-
-.card-item .itemname {
-    font-weight: 500;
-    color: #333;
-}
-
-.card-item .itemvalue {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #575757;
-}
-
-.card-container .card-button{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .popup .header-title {
     margin-bottom: 2%;
     display: flex;
@@ -49,7 +24,13 @@
     align-items: center;
     font-size: 1.3rem;
 }  
-  
+
+.popup .title-closebutton{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .scrollable {
     max-height: 78vh;
     overflow-y: auto;
@@ -67,10 +48,162 @@
     font-size: 1rem;
 }
 
+.popup .scrollable .form .form-part-one {
+    margin-bottom: 20px;
+}
+
 .popup .scrollable .form .form-part-one .part-content {
     display: flex;
     flex-wrap: wrap;
     gap: 13px;
+}
+
+.popup .treatment-details {
+    display: flex;
+}
+
+.popup .treatment-shedule {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.treatment-shedule .shedule-header {
+    padding-left: 8px;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.treatment-shedule .shedule-container {
+    margin-top: 10px;
+}
+
+.shedule-container .scontainer-header {
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: rgba(54, 54, 54, 0.752);
+}
+
+.shedule-container .scontainer-scrollable {
+    max-height: 310px;
+    overflow-y: auto;
+}
+
+.shedule-container .scontainer-values {
+    margin-top: 10px;
+    padding: 5px 10px 5px 10px;  
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.scontainer-values .drugname,
+.scontainer-header .drugname {
+    width: 30%;
+}
+
+.scontainer-values .time {
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.time .timetab {
+    width: 25%;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    background-color: aqua;
+}
+
+.scontainer-header .time {
+    width: 25%;
+}
+
+.scontainer-header .tap-cap,
+.scontainer-values .tap-cap {
+    width: 15%;
+}
+
+.scontainer-header .hourly,
+.scontainer-values .hourly {
+    width: 15%;
+}
+
+.scontainer-values .meals {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.meals .mealtab {
+    width: 50%;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    background-color: aqua;
+}
+
+.scontainer-header .meals {
+    width: 15%;
+}
+
+.treatment-details .details-group-two {
+    width: 30%;
+}
+
+.treatment-details .details-group-one {
+    width: 40%;
+    margin-right: 200px;
+}
+
+.details-group-one .group-item,
+.details-group-two .group-item,
+.card-container .card-item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.details-group-two .group-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.group-item .itemname,
+.card-item .itemname {
+    font-weight: 500;
+    color: #333;
+}
+
+.group-item .itemvalue,
+.card-item .itemvalue {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.card-container .card-button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .part-content .part-item,
@@ -87,14 +220,14 @@
 }
 
 .popup .scrollable .form .break-line {
-    margin: 40px 3% 20px 0;
+    margin: 0px 3% 20px 0;
     padding: 2px;
     border-radius: 10px;
     background-color: rgba(126, 126, 126, 0.815);
 }
 
 .form .hospital-info {
-    margin-top: 40px;
+    margin-top: 40px
 }
 
 .form .form-submitbutton{
@@ -166,6 +299,17 @@
     background-color: #ccc;
 }
 
+.medical-checkup-content .content-list .content-item{
+    padding: 3px 20px 3px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+
+
 .parttwo-treatmetdates {
     display: flex;
     flex-wrap: wrap;
@@ -181,12 +325,139 @@
 }
 
 .treatmet-content .treatmetcontent-header {
-    padding: 3px 20px 3px 10px;
+    padding: 3px 0px 3px 10px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    font-size: 0.9rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
     border-radius: 5px;
     background-color: #ccc;
 }
+
+.treatmet-content .treatmetcontent-list .treatmetcontent-values {
+    margin-bottom: 2px;
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.treatmetcontent-header .test-drugName,
+.treatmetcontent-values .test-drugName {
+    width: 29%;
+}
+
+.treatmetcontent-header .test-times,
+.treatmetcontent-values .test-times {
+    width: 40%;
+}
+
+.treatmetcontent-header .test-dosage,
+.treatmetcontent-values .test-dosage {
+    width: 9%;
+}
+
+.treatmetcontent-header .test-hourly,
+.treatmetcontent-values .test-hourly {
+    width: 9%;
+}
+
+.addcheckup-form,
+.addtreatment-form {
+    margin: 1% 3% 2% 0;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: rgba(127, 141, 141, 0.241);
+}
+
+.addcheckup-form .addcheckup-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.addcheckup-content .addcheckup-item,
+.addcheckup-content .addcheckup-date {
+    margin-left: 5px;
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+}
+
+.addcheckup-item label,
+.addtreatment-item label{
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #000000;
+}
+
+.addcheckup-date label {
+    margin-left: 85px;
+    font-size: 0.8rem;
+    color: #000000;
+}
+
+.addcheckup-item input[type="text"] {
+    width: 390px;
+    padding: 10px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.addcheckup-date input[type="date"] {
+    width: 250px;
+    padding: 10px;
+    margin-left: 76px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.addcheckup-form .addcheckup-button,
+.addtreatment-form .addtreatment-button {
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.addtreatment-form .addtreatment-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.addtreatment-form .druginfo {
+    margin: 10px;
+}
+
+.addtreatment-content .addtreatment-item {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.addtreatment-item input[type="date"],
+.addtreatment-item input[type="text"] {
+    padding: 10px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.addtreatment-item .checkbox-group {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.addtreatment-item .checkbox-group .checkbox-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: left;
+    font-size: 0.9rem;
+}    
