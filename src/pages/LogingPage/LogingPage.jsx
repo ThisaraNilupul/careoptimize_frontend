@@ -23,10 +23,11 @@ function LogingPage() {
 
     try{
       const response = await axios.post('http://localhost:5000/api/patient/login', { username, password});
-      // console.log('Response from server:', response.data);
-      const { token } = response.data;
-      // console.log('Token: ', token);
-      localStorage.setItem('token', token);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.userId);
+      localStorage.setItem('role', response.data.role);
+      localStorage.setItem('firstName', response.data.firstName);
+      localStorage.setItem('lastName', response.data.lastName);
       setNotification({
         status: 'success',
         message: 'Login Successful...!',

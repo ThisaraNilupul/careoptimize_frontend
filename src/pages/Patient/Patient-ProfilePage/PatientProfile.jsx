@@ -20,9 +20,7 @@ function PatientProfile() {
         email: '',
         birthday: '',
         gender: '',
-        bloodType: '',
-        height: '',
-        weight: '',
+        biodata: '',
         healthIssues: [],
         relatives: []
     });
@@ -80,9 +78,10 @@ function PatientProfile() {
     const [isOpenAddMedicalBioData, setIsOpenMedicalBioData] = useState(false);
     const [selectedRelative, setSelectedRelative] = useState(null); 
     const [notification, setNotification] = useState(null);
+    const userID = localStorage.getItem('userId');
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a",{
+    fetch(`http://localhost:5000/api/patient/profile/${userID}`,{
         method: "GET",
         headers: {'content-type': 'application/json'}
     })
@@ -108,8 +107,8 @@ function PatientProfile() {
         province: patinerProfileData.province,
         phoneNumber: patinerProfileData.phoneNumber,
         email: patinerProfileData.email,
-        height: patinerProfileData.height,
-        weight: patinerProfileData.weight,
+        height: patinerProfileData.biodata.height,
+        weight: patinerProfileData.biodata.weight,
     });
     setIsPIeditpopupOpen(true);
   }
@@ -120,7 +119,7 @@ function PatientProfile() {
 
   const handleUpdatePI = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a`,{
+    fetch(`http://localhost:5000/api/patient/profile/${userID}`,{
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -151,7 +150,7 @@ function PatientProfile() {
   
   const handleAddHealthIssue = async (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/health-issues`, {
+    fetch(`http://localhost:5000/api/patient/profile/${userID}/health-issues`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify({issue}),
@@ -177,7 +176,7 @@ function PatientProfile() {
   }
 
   const handleDeleteHealthIssue = async (issueID) => {
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/health-issues/${issueID}`,{
+    fetch(`http://localhost:5000/api/patient/profile/${userID}/health-issues/${issueID}`,{
         method: 'DELETE',
         headers: {'content-type': 'application/json'},
     })
@@ -213,7 +212,7 @@ function PatientProfile() {
 
   const handleUpdateHealthIssue = async (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/health-issues/${selectedIssue}`,{
+    fetch(`http://localhost:5000/api/patient/profile/${userID}/health-issues/${selectedIssue}`,{
         method: 'PUT',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({issue: issueDescription}),
@@ -237,7 +236,7 @@ function PatientProfile() {
   }
 
   const handleOpenRelative = (relativeId) => {
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/${relativeId}`, {
+    fetch(`http://localhost:5000/api/patient/profile/${userID}/${relativeId}`, {
         method: "GET",
         headers: {'content-type': 'application/json'}
     })
@@ -250,7 +249,7 @@ function PatientProfile() {
   }
 
   const handleDeleteRelative = () => {
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/${selectedRelative._id}`,{
+    fetch(`http://localhost:5000/api/patient/profile/${userID}/${selectedRelative._id}`,{
         method: "DELETE",
         headers: {'content-type': 'application/json'},
     })
@@ -293,7 +292,7 @@ function PatientProfile() {
 
   const handleUpdateRelative = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/${selectedRelative._id}`, {
+    fetch(`http://localhost:5000/api/patient/profile/${userID}/${selectedRelative._id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify(editRelativeData),
@@ -336,7 +335,7 @@ function PatientProfile() {
 
   const onSubmitAddMedicalBioData = async (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/medical-bio`, {
+    fetch(`http://localhost:5000/api/patient/profile/${userID}/medical-bio`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify({bloodType, height, weight}),
@@ -364,7 +363,7 @@ function PatientProfile() {
     e.preventDefault();
 
     try{
-        const response = await axios.post('http://localhost:5000/api/patient/profile/66e2a68ca560dfd45794e53a/relative', 
+        const response = await axios.post(`http://localhost:5000/api/patient/profile/${userID}/relative`, 
             {
                 firstName, lastName, addressNo, street, city, province, nic, phoneNumber, email, relationship
             }
@@ -392,9 +391,9 @@ function PatientProfile() {
   return (
     <div className='patient-profile'>
         <div className='patient-profile-button-container'>
-         {!patinerProfileData.bloodType || !patinerProfileData.height || !patinerProfileData.weight && (
+         {(!patinerProfileData.biodata.bloodType || !patinerProfileData.biodata.height || !patinerProfileData.biodata.weight) && (
             <Button text="Add Medical Data" height="40px" width="300px" onClick={handleOpenAddMBData} />
-        )} 
+        )}
         <Button text="Add Relative" height="40px" width="300px" onClick={handleOpenAddRelative}/>
         </div>
         <div className='patient-profile-container'>
@@ -431,15 +430,15 @@ function PatientProfile() {
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Blood Type</div>
-                        <div className='item-value'>{patinerProfileData.bloodType}</div>
+                        <div className='item-value'>{patinerProfileData.biodata.bloodType}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Height</div>
-                        <div className='item-value'>{patinerProfileData.height}</div>
+                        <div className='item-value'>{patinerProfileData.biodata.height}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Weight</div>
-                        <div className='item-value'>{patinerProfileData.weight}</div>
+                        <div className='item-value'>{patinerProfileData.biodata.weight}</div>
                     </div>
                     <div className='content-item'>
                         <Card width="100%" height="22vh">

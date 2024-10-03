@@ -9,14 +9,18 @@ import './App.css';
 
 function App() {
   const location = useLocation();
-  const [userRole, setUserRole] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
-    const role = 'patient';
-    setUserRole(role);
+    const role = localStorage.getItem('role');
+    const firstName = localStorage.getItem('firstName');
+    const lastName = localStorage.getItem('lastName');
+    setFirstname(firstName);
+    setLastname(lastName);
 
-    if (role === 'patient') {
+    if (role === 'P') {
       setMenuItems([
         { name: 'Home', path: '/patient/home', icon: <CiHome /> },
         { name: 'Appointments', path: '/patient/appointments', icon: <CiCircleList /> },
@@ -27,9 +31,12 @@ function App() {
         { name: 'Emergency', path: '/patient/emergency', icon: <CiMedicalCross /> },
         { name: 'Profile', path: '/patient/profile', icon: <CiUser /> },
       ]);
-    } else if (role === 'doctor') {
-      // Add Doctor-specific routes here
-    } else if (role === 'staff') {
+    } else if (role === 'D') {
+      setMenuItems([
+        { name: 'Home', path: '/patient/home', icon: <CiHome /> },
+        { name: 'Profile', path: '/patient/profile', icon: <CiUser /> },
+      ])
+    } else if (role === 'S') {
       // Add Staff-specific routes here
     }
   }, [location]);
@@ -48,7 +55,7 @@ function App() {
     <div className={isAuthPage() ? 'auth-container' : 'app-container'}>
       {shouldShowSidebar() && <Sidenav menu={menuItems} />}
       <div className='main-layout'>
-        {!isAuthPage() && <MainHeader />}
+        {!isAuthPage() && <MainHeader firstname={firstname} lastname={lastname} />}
         <div className={isAuthPage() ? 'auth-content' : 'content'}>
           <Routes>
             {AppRoutes.map((route, i) => (

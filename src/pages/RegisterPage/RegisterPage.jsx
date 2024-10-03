@@ -55,7 +55,7 @@ function RegisterPage() {
       e.preventDefault();
 
       try{
-        const response = await axios.post('http://localhost:5000/api/patient/register', formData);
+        const response = await axios.post('http://localhost:5000/api/register', formData);
           console.log('response', response);
           const {token} = response.data;
           localStorage.setItem('token', token);
@@ -103,7 +103,7 @@ function RegisterPage() {
                 <div className="scrollable-container">
                   <div className='items'>
                     <label>Select User Role</label>
-                    <select value={roleV} onChange={handleRoleChange}>
+                    <select value={role} onChange={handleRoleChange}>
                       <option value="P">Patient</option>
                       <option value="D">Doctor</option>
                       <option value="S">Staff</option>
