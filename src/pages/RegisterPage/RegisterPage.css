@@ -72,6 +72,19 @@
     padding-right: 10px;
 }
 
+.scrollable-container .items {
+    display: flex;
+    flex-direction: column;
+}
+
+.scrollable-container .items label {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #2b2b2b;
+}
+
+ 
+.baseForm select,
 .baseForm  input[type="text"],
 .baseForm  input[type="email"],
 .baseForm  input[type="date"],

@@ -6,8 +6,9 @@ import LoadingLeft from '../../components/loading-left-component/LoadingLeft';
 import Notification from '../../components/AlertNotification-component/Notification';
 
 function RegisterPage() {
-  const [role, setRole] = useState('patient');
+  const [roleV, setRoleV] = useState('P');
   const [formData, setFormData] = useState({
+    role: 'P',
     firstName: '',
     lastName: '', 
     addressNo: '',
@@ -26,10 +27,12 @@ function RegisterPage() {
   const navigate = useNavigate();
 
   const handleRoleChange = (e) => {
-    setRole(e.target.value);
+    setRoleV(e.target.value);
+    setFormData({...formData, role: e.target.value});
   };
 
-  const { firstName,
+  const { role,
+          firstName,
           lastName, 
           addressNo,
           street,
@@ -52,22 +55,7 @@ function RegisterPage() {
       e.preventDefault();
 
       try{
-        const response = await axios.post('http://localhost:5000/api/patient/register', 
-          {
-            firstName,
-            lastName, 
-            addressNo,
-            street,
-            city,
-            province,
-            nic, 
-            phoneNumber, 
-            email, 
-            birthday,
-            gender,
-            username, 
-            password
-          });
+        const response = await axios.post('http://localhost:5000/api/patient/register', formData);
           console.log('response', response);
           const {token} = response.data;
           localStorage.setItem('token', token);
@@ -111,27 +99,68 @@ function RegisterPage() {
         </div>
         <div className='Registerpage-rightside'>
             <div className='registerheading-1'>Register</div>
-            <div className='registerheading-2'>Select role</div>
-            <select value={role} onChange={handleRoleChange}>
-              <option value="patient">Patient</option>
-              <option value="doctor">Doctor</option>
-              <option value="staff">Staff</option>
-            </select>
             <form onSubmit={handleSubmit} className='baseForm'>
                 <div className="scrollable-container">
-                  <input type='text' name='firstName' value={firstName} onChange={onChange} placeholder='First name' required/>
-                  <input type='text' name='lastName' value={lastName} onChange={onChange} placeholder='Last name' required/>
-                  <input type='text' name='addressNo' value={addressNo} onChange={onChange} placeholder='AddressNo'required/>
-                  <input type='text' name='street' value={street} onChange={onChange} placeholder='Street' required/>
-                  <input type='text' name='city' value={city} onChange={onChange} placeholder='City' required/>
-                  <input type='text' name='province' value={ province} onChange={onChange} placeholder='Province' required/>
-                  <input type='text' name='nic' value={nic} onChange={onChange} placeholder='NIC' required/>
-                  <input type='text' name='phoneNumber' value={phoneNumber} onChange={onChange} placeholder='PhoneNo' required/>
-                  <input type='text' name='email' value={email} onChange={onChange} placeholder='Email' required/>
-                  <input type='date' name='birthday' value={birthday} onChange={onChange} placeholder='Birthday' required/>
-                  <input type='text' name='gender' value={gender} onChange={onChange} placeholder='Gender' required/>
-                  <input type='text' name='username' value={username} onChange={onChange} placeholder='Username' required/>
-                  <input type='password' name='password' value={password} onChange={onChange} placeholder='Password' required/>  
+                  <div className='items'>
+                    <label>Select User Role</label>
+                    <select value={roleV} onChange={handleRoleChange}>
+                      <option value="P">Patient</option>
+                      <option value="D">Doctor</option>
+                      <option value="S">Staff</option>
+                    </select>
+                  </div>
+                  <div className='items'>
+                    <label>First Name</label>
+                    <input type='text' name='firstName' value={firstName} onChange={onChange}  required/>
+                  </div>
+                  <div className='items'>
+                    <label>Last Name</label>
+                    <input type='text' name='lastName' value={lastName} onChange={onChange}  required/>
+                  </div>
+                  <div className='items'>
+                    <label>Address No.</label>
+                    <input type='text' name='addressNo' value={addressNo} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Street</label>
+                    <input type='text' name='street' value={street} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>City</label>
+                    <input type='text' name='city' value={city} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Province</label>
+                    <input type='text' name='province' value={ province} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>NIC</label>
+                    <input type='text' name='nic' value={nic} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Phone No.</label>
+                    <input type='text' name='phoneNumber' value={phoneNumber} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Email</label>
+                    <input type='text' name='email' value={email} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Birthday</label>
+                    <input type='date' name='birthday' value={birthday} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Gender</label>
+                    <input type='text' name='gender' value={gender} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Username</label>
+                    <input type='text' name='username' value={username} onChange={onChange} required/>
+                  </div>
+                  <div className='items'>
+                    <label>Password</label>
+                    <input type='password' name='password' value={password} onChange={onChange} required/>
+                  </div>  
                 </div>    
                 <button type="submit">Register</button>
             </form>
