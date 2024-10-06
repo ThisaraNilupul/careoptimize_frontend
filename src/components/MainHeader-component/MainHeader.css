@@ -13,6 +13,8 @@
 
 .mainheader-left h2 {
     margin: 0;
+    font-size: 1.3rem;
+    color: #333;
   }
   
   .mainheader-right {
@@ -21,10 +23,11 @@
   }
   
   .profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     margin-left: 20px;
+    background-color: #333;
   }
   
   .notification-icon {

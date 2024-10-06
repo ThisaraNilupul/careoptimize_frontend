@@ -1,0 +1,60 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.doctor-profile {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.doctor-profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+} 
+
+.doctor-profile-container .card-title,
+.doctor-profile-container .workatcard-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.doctor-profile-container .card-content
+{
+    padding: 0px 15px 0 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.doctor-profile-container .card-content .content-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.doctor-profile-container .card-content .content-item .item-name{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.doctor-profile-container .card-content .content-item .item-value{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.doctor-profile-container .workatcard-content .workatcontent-item .workat {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
