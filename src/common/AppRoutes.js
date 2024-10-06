@@ -6,8 +6,12 @@ import PatientAppointment from '../pages/Patient/Patient-AppointmentPage/Patient
 import PatientCalendar from '../pages/Patient/Patient-CalendarPage/PatientCalendar';
 import PatientOngoingTreatment from '../pages/Patient/Patient-OngoingTreatmentPage/PatientOngoingTreatment';
 import PatientProfile from '../pages/Patient/Patient-ProfilePage/PatientProfile';
+import DoctorProfile from '../pages/Doctor/Doctor-ProfilePage/DoctorProfile';
+import DoctorHome from '../pages/Doctor/Doctor-HomePage/DoctorHome';
+import DoctorAddTreatment from '../pages/Doctor/Doctor-AddTreatmentPage/DoctorAddTreatment';
 
 export const AppRoutes = [
+  //patient routes
   { path: '/login', component: <LoginPage /> },
   { path: '/signup', component: <RegisterPage /> },
   { path: '/patient/home', component: <PatientHome /> },
@@ -16,5 +20,10 @@ export const AppRoutes = [
 //   { path: '/patient/notifications', component: <PatientNotifications /> },
   { path: '/patient/calendar', component: <PatientCalendar /> },
 //   { path: '/patient/emergency', component: <PatientEmergency /> },
-  { path: '/patient/profile', component: <PatientProfile />}
+  { path: '/patient/profile', component: <PatientProfile />},
+
+  //doctor routes
+  { path: '/doctor/profile', component: <DoctorProfile />},
+  { path: '/doctor/home', component: <DoctorHome />},
+  { path: '/doctor/add-treatment', component: <DoctorAddTreatment />}
 ];

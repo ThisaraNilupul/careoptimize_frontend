@@ -33,8 +33,9 @@ function App() {
       ]);
     } else if (role === 'D') {
       setMenuItems([
-        { name: 'Home', path: '/patient/home', icon: <CiHome /> },
-        { name: 'Profile', path: '/patient/profile', icon: <CiUser /> },
+        { name: 'Home', path: '/doctor/home', icon: <CiHome /> },
+        { name: 'Treatments', path: '/doctor/add-treatment', icon: <CiPillsBottle1 /> },
+        { name: 'Profile', path: '/doctor/profile', icon: <CiUser /> },
       ])
     } else if (role === 'S') {
       // Add Staff-specific routes here
@@ -55,7 +56,7 @@ function App() {
     <div className={isAuthPage() ? 'auth-container' : 'app-container'}>
       {shouldShowSidebar() && <Sidenav menu={menuItems} />}
       <div className='main-layout'>
-        {!isAuthPage() && <MainHeader firstname={firstname} lastname={lastname} />}
+        {!isAuthPage() && <MainHeader location={location.pathname} firstname={firstname} lastname={lastname} />}
         <div className={isAuthPage() ? 'auth-content' : 'content'}>
           <Routes>
             {AppRoutes.map((route, i) => (
