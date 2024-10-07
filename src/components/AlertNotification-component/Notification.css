@@ -8,12 +8,14 @@
     width: 30%;
     height: auto;
     padding: 8px 20px;
-    border-radius: 4px;
+    border-radius: 5px;
+    border-left:5px solid;
+    /* border-bottom: 5px solid; */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    color: #1e281e;
     font-family: 'Arial', sans-serif;
     transition: transform 5s ease-in-out opacity 1s ease-in-out;
+    /* background-Color: #0f880d; */
 }
   
 .notification-container .icon {
@@ -33,6 +35,8 @@
     cursor: pointer;
     margin-left: 10px;
     font-size: 15px;
+    font-weight: 600;
+
 }
   
 .notification-container .close:hover {
