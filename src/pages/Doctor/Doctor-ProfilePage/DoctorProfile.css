@@ -11,6 +11,13 @@
     gap: 20px;
 }
 
+.doctor-profile-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
 .doctor-profile-container {
     display: flex;
     flex-wrap: wrap;
@@ -37,6 +44,7 @@
 }
 
 .doctor-profile-container .card-content .content-item{
+    margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
 }
