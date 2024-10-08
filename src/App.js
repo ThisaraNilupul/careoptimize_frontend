@@ -34,7 +34,7 @@ function App() {
     } else if (role === 'D') {
       setMenuItems([
         { name: 'Home', path: '/doctor/home', icon: <CiHome /> },
-        { name: 'Treatments', path: '/doctor/add-treatment', icon: <CiPillsBottle1 /> },
+        { name: 'Schedule-Treatments', path: '/doctor/add-treatment', icon: <CiPillsBottle1 /> },
         { name: 'Profile', path: '/doctor/profile', icon: <CiUser /> },
       ])
     } else if (role === 'S') {
