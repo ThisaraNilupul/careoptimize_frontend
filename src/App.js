@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { CiHome, CiCircleList, CiViewList, CiBellOn, CiCalendar, CiMedicalCross, CiUser, CiPillsBottle1 } from "react-icons/ci";
+import { CiHome, CiCircleList, CiViewList, CiBellOn, CiCalendar, CiMedicalCross, CiUser, CiPillsBottle1, CiMemoPad, CiStethoscope } from "react-icons/ci";
 import Sidenav from "./components/Sidenav-component/Sidenav";
 import MainHeader from './components/MainHeader-component/MainHeader';
 import { AppRoutes } from './common/AppRoutes';
@@ -34,7 +34,8 @@ function App() {
     } else if (role === 'D') {
       setMenuItems([
         { name: 'Home', path: '/doctor/home', icon: <CiHome /> },
-        { name: 'Schedule-Treatments', path: '/doctor/add-treatment', icon: <CiPillsBottle1 /> },
+        { name: 'Patinets Over-View', path: '/doctor/patients-over-view', icon: <CiMemoPad />},
+        { name: 'Schedule-Treatments', path: '/doctor/add-treatment', icon: <CiStethoscope /> },
         { name: 'Profile', path: '/doctor/profile', icon: <CiUser /> },
       ])
     } else if (role === 'S') {

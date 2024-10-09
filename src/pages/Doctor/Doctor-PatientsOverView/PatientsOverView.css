@@ -1,0 +1,442 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.patientsoverview {
+    display: flex;
+    gap: 20px;
+}
+
+.leftside .searchbar label {
+    margin-left: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.searchbar-input-wrapper {
+    position: relative;
+  }
+  
+  .search-input {
+    padding-right: 35px; 
+    padding-left: 10px;
+    border-radius: 5px;
+    width: 24vw;
+    height: 5vh;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+  }
+
+  .searchbar-input-button input::placeholder {
+    font-size: 14px; 
+    color: #999;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+  }
+
+.leftside .searchbar .searchbar-input-button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.rightside .title,
+.leftside .title {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.leftside .header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2px 4px 2px 4px;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 5px;
+    border-bottom:2px solid rgba(255, 110, 19, 0.741);
+    background-color: antiquewhite;
+}
+
+.leftside .header .name,
+.leftside .patient-list .name {
+    width: 20vw;
+}
+
+.leftside .header .contact,
+.leftside .patient-list .contact {
+    width: 10vw;
+}
+
+.leftside .patient-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftside .patient-list {
+    margin-bottom: 5px;
+    padding: 2px 0 2px 4px;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.leftside .header .view-button{
+    padding-right: 12px;
+    width: 7vw;
+    display: flex;
+    justify-content: right;
+}
+.leftside .patient-list-container .patient-list .view-button {
+    width: 7vw;
+    display: flex;
+    justify-content: right;
+}
+
+.rightside .isSelectPatient-false {
+    width: 38vw;
+    height: 83vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+.rightside .isSelectPatient-false .noteone {
+    font-size: 1.5rem;
+}
+
+.rightside .isSelect-Patient-true {
+    max-height: 95%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.isSelect-Patient-true .s_title {
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #7b7b7b;
+}
+
+.isSelect-Patient-true .s_item-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 4px 10px 8px 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-radius: 5px;
+    background-color: rgba(252, 224, 187, 0.297);
+}
+
+.isSelect-Patient-true .s_item-container .s_item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.isSelect-Patient-true .s_item-container .s_item .s_name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.isSelect-Patient-true .s_item-container .s_item .s_value {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.isSelect-Patient-true .hia_item-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 4px 5px 4px 10px;
+    height: 25vh;
+    min-height: 24vh;
+    max-height: 24vh;
+    border-radius: 5px;
+    background-color: rgba(252, 224, 187, 0.297);
+}
+
+.hia_item-container .hia_item-true {
+    margin-left: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #272727;
+}
+
+.hia_item-container .hia_item-false {
+    height: 22vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #a5a5a5;
+}
+
+.isSelect-Patient-true .ss_title {
+    margin: 16px 0 20px 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #7b7b7b;
+}
+
+.hia_item-container .hia_item-true-header {
+    padding-bottom: 5px;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    border-radius: 5px;
+    border-bottom:2px solid rgba(255, 110, 19, 0.741);
+}
+
+.hia_item-container .hia_item-true-vlues {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.hia_item-true-header .hia_item-name,
+.hia_item-true-header .hia_item-diagnosis {
+    width: 257px;
+    padding-left: 25px;
+}
+
+.hia_item-true-header .hia_item-contact {
+    padding-left: 14px;
+}
+
+.hia_item-true-header .hia_item-date,
+.hia_item-true-vlues .hia_item-date{
+    width: 100px;
+}
+
+.hia_item-true-vlues .hia_item-name,
+.hia_item-true-vlues .hia_item-diagnosis {
+    width: 250px;
+    padding-left: 8px;
+}
+
+.hia_item-true-vlues .hia_item-issue {
+    padding-left: 8px;
+}
+
+.hia_item-true-header .hia_item-relation {
+    width: 150px;
+    padding-left: 14px;
+}
+
+.hia_item-true-vlues .hia_item-relation {
+    width: 150px;
+}
+
+.isSelect-Patient-true .View-medical-history-button {
+    margin-left: 12px;
+    margin-bottom: 30px;
+}
+
+/* treatment popup */
+
+.popup-title .title-closebutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-group-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.header-group-item .itemname {
+    margin-right: 5px;
+}
+
+.treatment-details .details-group-one {
+    width: 100%;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.details-group-one .group-item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.details-group-one .group-item-des{
+    height: 5vh;
+    max-height: 5vh;
+    overflow-y: auto;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.header-group-item .itemname,
+.group-item .itemname,
+.group-item-des .itemname {
+    font-weight: 500;
+    color: #333;
+}
+
+.header-group-item .itemvalue
+.group-item .itemvalue,
+.group-item-des .itemvalue {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.popup .treatment-details {
+    margin-top: 30px;
+    display: flex;
+}
+
+.popup .treatment-shedule {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.treatment-shedule .shedule-header {
+    padding-left: 8px;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.treatment-shedule .shedule-container {
+    /* height: 46vh;
+    max-height: 46vh; */
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.shedule-container .scontainer-header {
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    color: #000000;
+    border-bottom:2px solid rgba(255, 110, 19, 0.741);
+    background-color: antiquewhite;
+    /* border-bottom: 2px solid rgba(2, 2, 2, 0.752);
+    background-color: rgba(54, 54, 54, 0.752); */
+}
+
+.scontainer-header .drugname {
+    width: 30%;
+}
+
+.scontainer-header .time {
+    width: 25%;
+}
+
+.scontainer-header .tap-cap {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.scontainer-header .hourly{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.shedule-container .scontainer-scrollable {
+    max-height: 310px;
+    overflow-y: auto;
+}
+
+.scontainer-scrollable .scontainer-values {
+    margin-top: 8px;
+    padding-left: 10px;
+    display: flex;
+    background-color: rgba(252, 224, 187, 0.108);
+}
+
+.v-drugname {
+    width: 20vw;
+}
+
+.v-time {
+    width: 17vw;
+    display: flex;
+}
+
+.v-time .timetab {
+    margin: 1px;
+    padding: 4px 10px 5px 10px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+.v-tap-cap {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+}
+
+.v-hourly {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+}
+
+.v-meals {
+    width: 9vw;
+    display: flex;
+    justify-content: center;
+}
+
+.v-meals .mealtab {
+    padding: 4px 10px 5px 10px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}

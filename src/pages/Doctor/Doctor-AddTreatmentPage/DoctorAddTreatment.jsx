@@ -6,6 +6,7 @@ import SubTextButton from '../../../components/BaseButton-component/SubTextButto
 import Notification from '../../../components/AlertNotification-component/Notification';
 import { LuSearch, LuSendHorizonal, LuChevronRight, LuX, LuCheck } from "react-icons/lu";
 import Card from '../../../components/BaseCard-component/Card';
+import axios from 'axios';
 
 function DoctorAddTreatment() {
   const doctorID = localStorage.getItem('userId');
@@ -313,7 +314,24 @@ function DoctorAddTreatment() {
     setNotification(null);
   };
 
-  console.log("treatmentform", newTreatmentForm);
+  // console.log("treatmentform", newTreatmentForm);
+
+  const handleSubmitNewTreatmentForm = async (e) => {
+    e.preventDefault();
+    try{
+      const response = await axios.post('http://localhost:5000/api/doctor/addTreatment', newTreatmentForm);
+      setNotification({
+        status: 'success',
+        message: response.data.msg,
+      });
+      setIsOpneNewTreatmentForm(false);
+    }catch (error) {
+      setNotification({
+        status: 'falied',
+        message: error.response.data
+    })
+    }
+  }
 
   return (
     <div className='doctoraddtreatment'>
@@ -667,7 +685,7 @@ function DoctorAddTreatment() {
                   </div>
                 </div>
                 <div className='form-submitbutton'>
-                  <SubTextButton text="Create" height="35px" width="200px"/>
+                  <SubTextButton text="Create" height="35px" width="200px" onClick={handleSubmitNewTreatmentForm} />
                 </div>    
               </div>
             </div>
