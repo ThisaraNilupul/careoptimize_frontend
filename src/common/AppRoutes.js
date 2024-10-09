@@ -9,6 +9,7 @@ import PatientProfile from '../pages/Patient/Patient-ProfilePage/PatientProfile'
 import DoctorProfile from '../pages/Doctor/Doctor-ProfilePage/DoctorProfile';
 import DoctorHome from '../pages/Doctor/Doctor-HomePage/DoctorHome';
 import DoctorAddTreatment from '../pages/Doctor/Doctor-AddTreatmentPage/DoctorAddTreatment';
+import PatientsOverView from '../pages/Doctor/Doctor-PatientsOverView/PatientsOverView';
 
 export const AppRoutes = [
   //patient routes
@@ -25,5 +26,6 @@ export const AppRoutes = [
   //doctor routes
   { path: '/doctor/profile', component: <DoctorProfile />},
   { path: '/doctor/home', component: <DoctorHome />},
-  { path: '/doctor/add-treatment', component: <DoctorAddTreatment />}
+  { path: '/doctor/add-treatment', component: <DoctorAddTreatment />},
+  { path: '/doctor/patients-over-view', component: <PatientsOverView />}
 ];

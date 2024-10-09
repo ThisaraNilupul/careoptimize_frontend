@@ -17,3 +17,21 @@
     gap: 20px;
 }  
 
+.card-container .t_card-item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.t_card-item .t_itemname {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.t_card-item .t_itemvalue {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #575757;
+}
+
