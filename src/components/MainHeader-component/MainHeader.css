@@ -21,16 +21,42 @@
     display: flex;
     align-items: center;
   }
+
+  .username {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
   
   .profile-pic {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
-    margin-left: 20px;
-    background-color: #333;
+    border: 1px solid rgb(126, 126, 126);
+    margin-left: 10px;
+    background-color: #bebebea6;
   }
   
   .notification-icon {
-    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 20px;
+  }
+
+  .unread-count {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+    right: 40px;
+    border-radius: 50%;
+    padding: 0px 7px 1px 7px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: red;
+    color: white;
   }

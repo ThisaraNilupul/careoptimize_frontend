@@ -38,8 +38,14 @@
   } 
   
   .side-nav li a:hover {
-    background-color: rgba(255, 146, 146, 0.61);
+    background-color: #cacaca;
     color: #000000;
+  }
+
+  .active-link {
+    color: #000000; 
+    border-left: 3px solid #175e01;
+    background-color: rgb(86, 255, 112);
   }
 
   .side-nav li .icon {
@@ -54,9 +60,9 @@
     color: #333;
   }
   
-  .active {
+  /* .active {
     color: #007bff;
-  }
+  } */
 
   .side-nav .logout {
     margin-top: 70%;
