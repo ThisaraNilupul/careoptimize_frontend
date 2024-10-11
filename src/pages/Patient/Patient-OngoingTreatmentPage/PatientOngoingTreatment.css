@@ -6,7 +6,6 @@
 
 .patient-OngoingTreatment-container {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
   }
@@ -15,7 +14,18 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-}  
+}
+
+.patient-OngoingTreatment-container-false {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #a5a5a5;
+}
 
 .card-container .t_card-item {
     margin-bottom: 5px;

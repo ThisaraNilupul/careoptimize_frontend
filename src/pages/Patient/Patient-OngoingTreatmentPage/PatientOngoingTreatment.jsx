@@ -83,7 +83,7 @@ function PatientOngoingTreatment() {
           </div>
         ))
       ) : (
-        <div className='hia_item-false'>No On-going Treatments</div>
+        <div className='patient-OngoingTreatment-container-false'>There is no On-going Treatments currently going on.</div>
       )}
       {isOpenTreatment && (
             <div className='popup'>

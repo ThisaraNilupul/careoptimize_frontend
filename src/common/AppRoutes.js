@@ -10,6 +10,7 @@ import DoctorProfile from '../pages/Doctor/Doctor-ProfilePage/DoctorProfile';
 import DoctorHome from '../pages/Doctor/Doctor-HomePage/DoctorHome';
 import DoctorAddTreatment from '../pages/Doctor/Doctor-AddTreatmentPage/DoctorAddTreatment';
 import PatientsOverView from '../pages/Doctor/Doctor-PatientsOverView/PatientsOverView';
+import PatientNotification from '../pages/Patient/Patient-NotificationPage/PatientNotification';
 
 export const AppRoutes = [
   //patient routes
@@ -18,7 +19,7 @@ export const AppRoutes = [
   { path: '/patient/home', component: <PatientHome /> },
   { path: '/patient/appointments', component: <PatientAppointment /> },
   { path: '/patient/ongoing-treatment', component: <PatientOngoingTreatment /> },
-//   { path: '/patient/notifications', component: <PatientNotifications /> },
+  { path: '/patient/notifications', component: <PatientNotification /> },
   { path: '/patient/calendar', component: <PatientCalendar /> },
 //   { path: '/patient/emergency', component: <PatientEmergency /> },
   { path: '/patient/profile', component: <PatientProfile />},
