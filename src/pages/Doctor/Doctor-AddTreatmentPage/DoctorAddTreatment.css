@@ -145,15 +145,15 @@
     flex-wrap: wrap;
     gap: 8px;
     border-radius: 5px;
-    background-color: rgba(252, 224, 187, 0.297);
+    background-color: #f1f1f1;
 }
 
 .isSelectPatient-true .s_item-container .s_item {
     display: flex;
-    justify-content: space-between;
 }
 
 .isSelectPatient-true .s_item-container .s_item .s_name {
+    width: 6vw;
     font-size: 1rem;
     font-weight: 500;
     color: #333;
@@ -173,7 +173,7 @@
     height: 25vh;
     max-height: 24vh;
     border-radius: 5px;
-    background-color: rgba(252, 224, 187, 0.297);
+    background-color: #f1f1f1;
 }
 
 .hia_item-container .hia_item-true {

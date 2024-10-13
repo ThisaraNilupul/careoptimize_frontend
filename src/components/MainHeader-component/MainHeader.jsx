@@ -26,11 +26,27 @@ const MainHeader = ({location, firstname, lastname}) => {
     }
   };
 
+  const getPageTitle = (location) => {
+    const pageTitles = {
+      '/patient/home': 'Home',
+      '/patient/appointments': 'Appointments',
+      '/patient/ongoing-treatment': 'Ongoing Treatments',
+      '/patient/notifications' : 'Notifications',
+      '/patient/calendar' : 'Calendar',
+      '/patient/profile' : 'Profile',
+      '/doctor/home': 'Home',
+      '/doctor/patients-over-view' : "Patient's Over View",
+      '/doctor/add-treatment' : 'Shedule Treatments',
+      '/doctor/profile' : 'Profile',
+    };
+    return pageTitles[location] || '';
+  }
+
 
   return (
     <div className='mainheader'>
       <div className='mainheader-left'>
-        <h2>{location}</h2>
+        <h2>{getPageTitle(location)}</h2>
       </div>
       <div className='mainheader-right'>
         <span className='username'>{firstname} {lastname}</span> 

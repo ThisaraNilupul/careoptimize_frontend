@@ -5,7 +5,7 @@ import './SubButton.css';
 const SubButton = ({text, icon, height, width, onClick}) => {
   return (
     <button className='sub-custom-button' style={{height: height , width: width}} onClick={onClick}>
-        {icon}{text}
+        {React.cloneElement(icon, { size: 20, color: "#333", })}
     </button>
   )
 }

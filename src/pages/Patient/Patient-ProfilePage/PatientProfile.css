@@ -35,6 +35,7 @@
 .patient-profile-container .card-content,
 .popup .card-content
 {
+    margin-bottom: 10px;
     padding: 0px 15px 0 15px;
     display: flex;
     flex-direction: column;
@@ -42,7 +43,7 @@
     gap: 10px;
 }
 
-.patient-profile-container .card-content .content-item .card-title .button-group{
+.patient-profile-container .card-title .button-group{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -51,11 +52,12 @@
 .patient-profile-container .card-content .content-item, 
 .popup .card-content .content-item{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .patient-profile-container .card-content .content-item .item-name, 
 .popup .card-content .content-item .item-name{
+    width: 8vw;
     font-size: 1rem;
     font-weight: 500;
     color: #333;

@@ -6,6 +6,7 @@ import Notification from '../../../components/AlertNotification-component/Notifi
 import { LuPlus, LuPencilLine, LuListOrdered, LuFileText, LuX, LuTrash2, LuHeartPulse } from "react-icons/lu";
 import axios from 'axios';
 import './DoctorProfile.css';
+import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 
 
 function DoctorProfile() {
@@ -314,39 +315,39 @@ function DoctorProfile() {
                 <div className='card-content'>
                     <div className='content-item'>
                         <div className='item-name'>Name</div>
-                        <div className='item-value'>Dr. {doctorProfileData.firstName} {doctorProfileData.lastName}</div>
+                        <div className='item-value'>: Dr. {doctorProfileData.firstName} {doctorProfileData.lastName}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Speciality</div>
-                        <div className='item-value'>{doctorProfileData.doctorInfo.specialistArea}</div>
+                        <div className='item-value'>: {doctorProfileData.doctorInfo.specialistArea}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Qulification</div>
-                        <div className='item-value'>{doctorProfileData.doctorInfo.eduLevel}</div>
+                        <div className='item-value'>: {doctorProfileData.doctorInfo.eduLevel}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Address</div>
-                        <div className='item-value'>{doctorProfileData.addressNo} / {doctorProfileData.street} / {doctorProfileData.city} / {doctorProfileData.province} Province</div>
+                        <div className='item-value'>: {doctorProfileData.addressNo} / {doctorProfileData.street} / {doctorProfileData.city} / {doctorProfileData.province} Province</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>NIC</div>
-                        <div className='item-value'>{doctorProfileData.nic}</div>
+                        <div className='item-value'>: {doctorProfileData.nic}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Phone No</div>
-                        <div className='item-value'>{doctorProfileData.phoneNumber}</div>
+                        <div className='item-value'>: {doctorProfileData.phoneNumber}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>email</div>
-                        <div className='item-value'>{doctorProfileData.email}</div>
+                        <div className='item-value'>: {doctorProfileData.email}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Birthday</div>
-                        <div className='item-value'>{doctorProfileData.birthday}</div>
+                        <div className='item-value'>: {doctorProfileData.birthday}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Gender</div>
-                        <div className='item-value'>{doctorProfileData.gender}</div>
+                        <div className='item-value'>: {doctorProfileData.gender}</div>
                     </div>
                 </div>
             </Card>
@@ -403,7 +404,7 @@ function DoctorProfile() {
                             <input  type="text" name="h_email" value={h_email} onChange={onChange} />
                         </div>
                         <div className='PIedit-savebutton'>
-                            <Button text="Add" type='submit' height="35px" width="200px" />
+                            <SubTextButton text="Add" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>
@@ -417,20 +418,20 @@ function DoctorProfile() {
                     </div>
                     <div className='card-content'>
                         <div className='content-item'>
-                            <div className='item-name'>Work Place Name</div>
-                            <div className='item-value'>{selectedWorkAt.placeName}</div>
+                            <div className='work-item-name'>Work Place Name</div>
+                            <div className='item-value'>: {selectedWorkAt.placeName}</div>
                         </div>
                         <div className='content-item'>
-                            <div className='item-name'>Address</div>
-                            <div className='item-value'>{selectedWorkAt.h_addressNo} / {selectedWorkAt.h_street} / {selectedWorkAt.h_city} / {selectedWorkAt.h_province} Province</div>
+                            <div className='work-item-name'>Address</div>
+                            <div className='item-value'>: {selectedWorkAt.h_addressNo} / {selectedWorkAt.h_street} / {selectedWorkAt.h_city} / {selectedWorkAt.h_province} Province</div>
                         </div>
                         <div className='content-item'>
-                            <div className='item-name'>Phone No</div>
-                            <div className='item-value'>{selectedWorkAt.h_phoneNumber}</div>
+                            <div className='work-item-name'>Phone No</div>
+                            <div className='item-value'>: {selectedWorkAt.h_phoneNumber}</div>
                         </div>
                         <div className='content-item'>
-                            <div className='item-name'>email</div>
-                            <div className='item-value'>{selectedWorkAt.h_email}</div>
+                            <div className='work-item-name'>email</div>
+                            <div className='item-value'>: {selectedWorkAt.h_email}</div>
                         </div>
                         <div className='relativebutton-group'>
                             <SubButton icon={<LuTrash2 />} height="30px" width="60px" onClick={handleDeleteWorkAt}/>
@@ -476,7 +477,7 @@ function DoctorProfile() {
                             <input  type="text" name="h_email" value={editWorkAtData.h_email} onChange={(e) => setEditWorkAtData({...editWorkAtData, h_email: e.target.value})} required/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <Button text="Update & Save" type='submit' height="35px" width="200px" />
+                            <SubTextButton text="Update & Save" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>
@@ -498,7 +499,7 @@ function DoctorProfile() {
                             <input  type="text" name="eduLevel" value={eduLevel} onChange={onChangeAddQulification} required/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <Button text="Add" type='submit' height="35px" width="200px" />
+                            <SubButton text="Add" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>
@@ -552,7 +553,7 @@ function DoctorProfile() {
                             <input  type="text" name="specialistArea" value={editDoctorProfileData.specialistArea} onChange={(e) => setEditDoctorProfileData({...editDoctorProfileData, specialistArea: e.target.value})} required/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <Button text="Update & Save" type='submit' height="35px" width="200px" />
+                            <SubTextButton text="Update & Save" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>

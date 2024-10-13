@@ -67,9 +67,9 @@
     display: flex;
     font-size: 0.9rem;
     font-weight: 500;
-    border-radius: 5px;
-    border-bottom:2px solid rgba(255, 110, 19, 0.741);
-    background-color: antiquewhite;
+    border-radius: 1px;
+    border-bottom: 3px solid rgba(24, 176, 14, 0.741);
+    background-color: rgb(227, 255, 232);
 }
 
 .leftside .header .name,
@@ -109,8 +109,8 @@
 }
 
 .rightside .isSelectPatient-false {
-    width: 38vw;
-    height: 83vh;
+    width: 37vw;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -147,15 +147,15 @@
     flex-wrap: wrap;
     gap: 8px;
     border-radius: 5px;
-    background-color: rgba(252, 224, 187, 0.297);
+    background-color: #f1f1f1;
 }
 
 .isSelect-Patient-true .s_item-container .s_item {
     display: flex;
-    justify-content: space-between;
 }
 
 .isSelect-Patient-true .s_item-container .s_item .s_name {
+    width: 6vw;
     font-size: 1rem;
     font-weight: 500;
     color: #333;
@@ -175,7 +175,7 @@
     min-height: 24vh;
     max-height: 24vh;
     border-radius: 5px;
-    background-color: rgba(252, 224, 187, 0.297);
+    background-color: #f1f1f1;
 }
 
 .hia_item-container .hia_item-true {
@@ -212,7 +212,7 @@
     font-weight: 500;
     color: #333;
     border-radius: 5px;
-    border-bottom:2px solid rgba(255, 110, 19, 0.741);
+    border-bottom:3px solid rgba(24, 176, 14, 0.741);
 }
 
 .hia_item-container .hia_item-true-vlues {
@@ -238,6 +238,11 @@
 .hia_item-true-header .hia_item-date,
 .hia_item-true-vlues .hia_item-date{
     width: 100px;
+}
+
+.hia_item-true-header .hia_item-evaluate-date,
+.hia_item-true-vlues .hia_item-evaluate-date {
+    width: 200px;
 }
 
 .hia_item-true-vlues .hia_item-name,
@@ -268,7 +273,7 @@
 
 .popup-title .title-closebutton {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
@@ -279,7 +284,7 @@
     font-size: 1.1rem;
 }
 
-.header-group-item .itemname {
+.header-group-item .itemname-d {
     margin-right: 5px;
 }
 
@@ -292,7 +297,6 @@
 .details-group-one .group-item {
     margin-bottom: 5px;
     display: flex;
-    justify-content: space-between;
     font-size: 0.9rem;
 }
 
@@ -302,19 +306,35 @@
     overflow-y: auto;
     margin-bottom: 5px;
     display: flex;
-    justify-content: space-between;
     font-size: 0.9rem;
+}
+
+.header-group-item .t-itemname{
+    margin-right: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #333;
 }
 
 .header-group-item .itemname,
 .group-item .itemname,
 .group-item-des .itemname {
+    width: 10vw;
     font-weight: 500;
     color: #333;
 }
 
-.header-group-item .itemvalue
-.group-item .itemvalue,
+.header-group-item .t-itemvalue{
+    padding: 0 2px 0 2px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 5px;
+    color: #575757;
+    background-color: #d6d6d6;
+}
+
+.header-group-item .itemvalue,
+.details-group-one .group-item .itemvalue,
 .group-item-des .itemvalue {
     font-size: 1rem;
     font-weight: 400;
@@ -335,6 +355,9 @@
 .treatment-shedule .shedule-header {
     padding-left: 8px;
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     font-size: 1rem;
     font-weight: 500;
     color: #333;
@@ -353,10 +376,10 @@
     justify-content: space-between;
     font-size: 1rem;
     font-weight: 500;
-    border-radius: 10px;
+    border-radius: 2px;
     color: #000000;
-    border-bottom:2px solid rgba(255, 110, 19, 0.741);
-    background-color: antiquewhite;
+    border-bottom: 3px solid rgba(24, 176, 14, 0.741);
+    background-color: rgb(227, 255, 232);
     /* border-bottom: 2px solid rgba(2, 2, 2, 0.752);
     background-color: rgba(54, 54, 54, 0.752); */
 }
@@ -390,7 +413,7 @@
     margin-top: 8px;
     padding-left: 10px;
     display: flex;
-    background-color: rgba(252, 224, 187, 0.108);
+    background-color: #f1f1f1;
 }
 
 .v-drugname {
@@ -439,4 +462,230 @@
     align-items: center;
     font-size: 0.9rem;
     border-radius: 10px;
+}
+
+.werning-message {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #ffacac;
+}
+
+.werning-message .w-msg {
+    margin-left: 10px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #970000;
+}
+
+.reason-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.reason-container label {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+.addmh-container {
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addmh-container input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+}
+
+.addmh-container .addmh-note {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+.ct-button {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkup-popup-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.checkuplist-container .checkuplist-header {
+    padding: 5px 10px 5px 10px;
+    width: 33vw;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 2px;
+    color: #000000;
+    border-bottom: 3px solid rgba(24, 176, 14, 0.741);
+    background-color: rgb(227, 255, 232);
+}
+
+.checkuplist-header .testname {
+    width: 20vw;
+}
+
+.checkuplist-header .evaluation {
+    width: 8vw;
+}
+
+.checkuplist-container .checkuplist .checkup {
+    padding: 5px 10px 5px 10px;
+    display: flex;
+}
+
+.checkuplist-container .checkuplist .checkup .testname {
+    width: 20vw;
+}
+
+.checkuplist-container .checkuplist .checkup .evaluation {
+    width: 8vw;
+}
+
+.checkup-feedback-form {
+    width: 32vw;
+    height: 66vh;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+}
+
+.checkup-feedback-form-false {
+    width: 32vw;
+    height: 66vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #999;
+    background-color: #f1f1f1;
+}
+
+.checkup-feedback-form .checkup-feedback-evaluated {
+    width: 32vw;
+    height: 66vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #3a3a3a;
+    background-color: rgb(196, 255, 196);
+}
+ 
+.checkup-feedback-form .feedback-form-title {
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 2px;
+    color: #000000;
+}
+
+.feedback-content {
+    margin-left: 15px;
+}
+
+.feedback-content .feedback_item {
+    padding: 10px;
+    display: flex;
+}
+
+.feedback_note .f_name,
+.feedback_item .f_name {
+    width: 7vw;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.feedback_item .f_value {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.feedback_item .status_value {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.status_value .positive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.status_value .negative {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #575757;
+}
+
+.feedback-content .feedback_note {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feedback_note textarea {
+    width: 29vw;
+    height: 20vh;
+}
+
+.feedback-content .feedback_button {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.treatmentclose-false {
+    height: 27vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #ffacac;
+}
+
+.treatmentclose-false .treatmentclose-false-note{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #970000;
 }

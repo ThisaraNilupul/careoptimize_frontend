@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Card from '../../../components/BaseCard-component/Card';
 import Button from '../../../components/BaseButton-component/Button';
 import SubButton from '../../../components/BaseButton-component/SubButton';
 import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 import Notification from '../../../components/AlertNotification-component/Notification';
-import { LuSearch, LuChevronRight, LuBookOpen, LuX, LuChevronsLeftRight } from "react-icons/lu";
-// import { CiPaperplane } from "react-icons/ci";
-import { BsHandIndexThumb } from "react-icons/bs";
+import { LuSearch, LuChevronRight, LuBookOpen, LuX, LuChevronsLeftRight, LuSendHorizonal } from "react-icons/lu";
+import { CiCircleQuestion, CiWarning } from "react-icons/ci";
+import { RiFeedbackLine } from "react-icons/ri";
 import './PatientsOverView.css';
 
 function PatientsOverView() {
+  const doctorID = localStorage.getItem('userId');
   const [allPatientsList, setAllPatientsList] = useState([]);
   const [allOngoingTreatmentList, setAllOngoingTreatmentList] = useState([]);
   const [filteredPatients, setFilteredPatients] = useState([]);
@@ -19,6 +21,16 @@ function PatientsOverView() {
   const [notification, setNotification] = useState(null);
   const [isOpenOngoingTreatment, setIsOpenOngoingTreatment] = useState(false);
   const [selectedOngoingTreatment, setSelectedOngoingTreatment] = useState(null);
+  const [isClickCloseTreatment, setIsClickCloseTreatment] = useState(false);
+  const [reason, setReason] = useState('');
+  const [addTOMedicalHistory, setAddToMedicalHistory] = useState(false);
+  const [isOpenCheckupList, setIsOpenCheckupList] = useState(false);
+  const [isSelecteCheckup, setIsSelecteCheckup] = useState(false);
+  const [selectedCheckup, setSelectedCheckup] = useState(null);
+  const [doctorProfileData, setDoctorProfileData] = useState({});
+  const [feedbackNote, setFeedbackNote] = useState('');
+  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/doctor/add-teatment/all-patients`)
@@ -99,6 +111,133 @@ function PatientsOverView() {
     setIsOpenOngoingTreatment(false);
   }
 
+  const handleOpenCheckupList = () => {
+    setIsOpenOngoingTreatment(false);
+    setIsSelecteCheckup(false);
+    setIsOpenCheckupList(true);
+  }
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/doctor/profile/${doctorID}`,{
+        method: "GET",
+        headers: {'content-type': 'application/json'}
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        setDoctorProfileData(data);
+    })
+    .catch((error => { console.log(error) }));
+  }, [isSelecteCheckup]);
+
+  const handleSelecteCheckup = (checkup) => {
+    setSelectedCheckup(checkup);
+    setIsSelecteCheckup(true);
+  }
+
+  const handelSUbmitFeedback = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const feedbackData = {
+        userId: selectedOngoingTreatment.patientId,
+        assignById: selectedOngoingTreatment.doctorInfo.doctorId,
+        assignByfirstName: selectedOngoingTreatment.doctorInfo.firstName,
+        assignBylastName:  selectedOngoingTreatment.doctorInfo.lastName,
+        treatmentId: selectedOngoingTreatment._id,
+        evaluateById: doctorID,
+        evaluateByfirstName: doctorProfileData.firstName,
+        evaluateBylastName: doctorProfileData.lastName,
+        testName: selectedCheckup.testName,
+        status,
+        feedback: feedbackNote,
+      };
+
+      const response = await axios.post('http://localhost:5000/api/doctor/checkup/feedback', feedbackData);
+      setNotification({
+        status: 'success',
+        message: response.data.msg || response.msg,
+      });
+      setIsSelecteCheckup(false);
+    }catch (error) {
+      console.error('Error submitting feedback:', error);
+      setNotification({
+        status: 'failed',
+        message: error.data.msg,
+      });
+    }finally {
+      setIsSubmitting(false);
+    }
+
+  }
+
+  const handleCloseCheckupList = () => {
+    setIsOpenCheckupList(false);
+    setIsOpenOngoingTreatment(true);
+  }
+
+  const handelOpenCloseTreatment = () => {
+    setIsClickCloseTreatment(true);
+  }
+
+  const handelReasonChange = (e) => {
+    setReason(e.target.value);
+  }
+
+  const handleCheckboxChange = (e) => {
+    setAddToMedicalHistory(true);
+  }
+
+  const areAllCheckupsEvaluated = (checkups) => {
+    return checkups.every(checkup => checkup.evaluated === true);
+  };
+
+  const handleCloseTreatment = async () => {
+    if(!areAllCheckupsEvaluated(selectedOngoingTreatment.checkups)) {
+      alert("All checkups must be evaluated before closing the treatment.");
+      return;
+    }
+
+    if (!reason) {
+      setNotification({
+        status: 'failed',
+        message: 'Please provide a reason for closing the treatment.'
+      });
+      return;
+    }
+
+    try {
+      const closeData = {
+        treatmentId: selectedOngoingTreatment._id,
+        reason,
+        closedDate: new Date(),
+        addTOMedicalHistory
+      }
+
+      const response = await axios.post(`http://localhost:5000/api/doctor/closeTreatment`, closeData);
+      setIsClickCloseTreatment(false);
+      setIsOpenOngoingTreatment(false);
+      setNotification({
+        status: 'success',
+        message: response.data.msg || response.msg,
+      });
+    } catch (error) {
+      setNotification({
+        status: 'failed',
+        message: error.data.msg,
+      });
+    }
+  }
+
+  const handleCloseCloseTreatment = () => {
+    setIsClickCloseTreatment(false);
+  }
+
+  const handleCloseOpenCheckupList = () => {
+    setIsClickCloseTreatment(false);
+    setIsOpenCheckupList(true);
+  }
+
   return (
     <div className='patientsoverview'>
     <div className='leftside'>
@@ -125,7 +264,7 @@ function PatientsOverView() {
                   <div className='name'>{`${patient.firstName} ${patient.lastName}`}</div>
                   <div className='contact'>{patient.phoneNumber}</div>
                   <div className='view-button'>
-                    <SubButton icon={<BsHandIndexThumb />} height="30px" width="60px" onClick={() => handleSelectedPatientData(patient)} />
+                    <SubButton icon={<LuSendHorizonal />} height="30px" width="60px" onClick={() => handleSelectedPatientData(patient)} />
                   </div>
               </div>
             ))
@@ -144,27 +283,27 @@ function PatientsOverView() {
             <div className='s_item-container'>
               <div className='s_item'>
                 <div className='s_name'>Name</div>
-                <div className='s_value'>{`${selectedPatient.firstName} ${selectedPatient.lastName}`}</div>
+                <div className='s_value'>: {`${selectedPatient.firstName} ${selectedPatient.lastName}`}</div>
               </div>
               <div className='s_item'>
                 <div className='s_name'>Age</div>
-                <div className='s_value'>{calculateAge(selectedPatient.birthday)}</div>
+                <div className='s_value'>: {calculateAge(selectedPatient.birthday)}</div>
               </div>
               <div className='s_item'>
                 <div className='s_name'>Gender</div>
-                <div className='s_value'>{selectedPatient.gender}</div>
+                <div className='s_value'>: {selectedPatient.gender}</div>
               </div>
               <div className='s_item'>
                 <div className='s_name'>Phone No.</div>
-                <div className='s_value'>{selectedPatient.phoneNumber}</div>
+                <div className='s_value'>: {selectedPatient.phoneNumber}</div>
               </div>
               <div className='s_item'>
                 <div className='s_name'>Email</div>
-                <div className='s_value'>{selectedPatient.email}</div>
+                <div className='s_value'>: {selectedPatient.email}</div>
               </div>
               <div className='s_item'>
                 <div className='s_name'>Address</div>
-                <div className='s_value'>{selectedPatient.addressNo}/ {selectedPatient.street}/ {selectedPatient.city}/ {selectedPatient.province} province</div>
+                <div className='s_value'>: {selectedPatient.addressNo}/ {selectedPatient.street}/ {selectedPatient.city}/ {selectedPatient.province} province</div>
               </div>
             </div>
             <div className='s_title'>Patient's Relative Info</div>
@@ -222,6 +361,26 @@ function PatientsOverView() {
                 <div className='hia_item-false'>No On-going Treatments</div>
               )}
             </div>
+            {/* <div className='ss_title'>Pending Checkups Results Evalutation</div>
+            <div className='hia_item-container'>
+                <div className='hia_item-true-header' >
+                    <div className='hia_item-diagnosis'>Checkup</div>
+                    <div className='hia_item-evaluate-date'>Evaluation Date</div>
+                    <div className='hia_item-button'>Open</div>
+                </div>
+              {allOngoingTreatmentList.length > 0 ? (
+                allOngoingTreatmentList.map((treatment, index) => (
+                  <div key={index} className='hia_item-true-vlues' >
+                    <LuChevronRight />
+                    <div className='hia_item-diagnosis'>{treatment.diagnosis}</div>
+                    <div className='hia_item-evaluate-date'>{setdateFormat(treatment.startDate)}</div>
+                    <div className='hia_item-button'><SubButton icon={<RiFeedbackLine />} height="30px" width="60px" onClick={() => handleOpenOngoingTreatment(treatment)}/></div>
+                  </div>
+                ))
+              ) : (
+                <div className='hia_item-false'>No Pending Checkups to evaluate</div>
+              )}
+            </div> */}
             <div className='ss_title'>Patient's Medical History</div>
             <div className='View-medical-history-button'>
                 <SubTextButton text="View Medical History" height="40px" width="300px" />
@@ -241,15 +400,18 @@ function PatientsOverView() {
                   <div className="popup-title">
                       <div className='title-closebutton'>
                           On-going Treatment
-                          <Button text="Close Treatment" height="35px" width="180px" />
+                          <Button text="Close Treatment" height="28px" width="160px" onClick={handelOpenCloseTreatment}/>
+                          {selectedOngoingTreatment.checkups.length > 0 ? (
+                          <SubTextButton text="Assigned Checkups" height="28px" width="160px" onClick={handleOpenCheckupList} />
+                          ) : (<div className='header-group-item'><div className='t-itemvalue'>No Checkups Assigned</div></div>)}
                         <div className='header-group-item'>
-                            <div className='itemname'>Start Date: </div>
-                            <div className='itemvalue'>{setdateFormat(selectedOngoingTreatment.startDate)}</div>
+                            <div className='t-itemname'>Start Date : </div>
+                            <div className='t-itemvalue'>{setdateFormat(selectedOngoingTreatment.startDate)}</div>
                         </div>
                         <LuChevronsLeftRight />
                         <div className='header-group-item'>
-                            <div className='itemname'>End Date:</div>
-                            <div className='itemvalue'>{setdateFormat(selectedOngoingTreatment.endDate)}</div>
+                            <div className='t-itemname'>End Date :</div>
+                            <div className='t-itemvalue'>{setdateFormat(selectedOngoingTreatment.endDate)}</div>
                         </div>
                       </div>
                       <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseOngoingTreatment} />
@@ -271,7 +433,10 @@ function PatientsOverView() {
                     </div>
                   </div>
                   <div className='treatment-shedule'>
-                    <div className='shedule-header'>Current Treatment Shedule</div>
+                    <div className='shedule-header'>
+                      Current Treatment Shedule
+                      <SubTextButton text="Update Shedule" height="26px" width="160px" />
+                    </div>
                     <div className='shedule-container'>
                       <div className='scontainer-header'>
                         <div className='drugname'>Drug Name</div>
@@ -313,6 +478,130 @@ function PatientsOverView() {
                   </div>
                 </Card>
             </div>
+    )}
+    {isOpenCheckupList && (
+      <div className='popup'>
+        <Card width="70%" height="80vh">
+          <div className="popup-title">
+            Checkup List        
+            <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseCheckupList} />
+          </div>
+          <div className='checkup-popup-content'>
+            <div className='checkuplist-container'>
+              <div className='checkuplist-header'>
+                <div className='testname'>Test Name</div>
+                <div className='evaluation'>Evaluation date</div>
+                <div className='feedback'>Feedback</div>
+              </div>
+              <div className='checkuplist'>
+                {selectedOngoingTreatment.checkups.map((checkup, index) => (
+                  <div key={index} className='checkup'>
+                    <div className='testname'>{checkup.testName}</div>
+                    <div className='evaluation'>{setdateFormat(checkup.evaluationDate)}</div>
+                    <SubButton icon={<RiFeedbackLine />} height="30px" width="60px" onClick={() => handleSelecteCheckup(checkup)}/>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {isSelecteCheckup ? (
+            <div className='checkup-feedback-form'>
+              {selectedCheckup.evaluated ? (
+                  <div className='checkup-feedback-evaluated'>
+                    <div>Selected Checkup is already evaluaded.</div>
+
+                  </div>
+              ) : (
+                <div>
+                  <div className='feedback-form-title'>
+                    Feedback Form
+                  </div>
+                  <form onSubmit={handelSUbmitFeedback}>
+                  <div className='feedback-content'>
+                      <div className='feedback_item'>
+                        <div className='f_name'>Test Name</div>
+                        <div className='f_value'>: {selectedCheckup.testName}</div>
+                      </div>
+                      <div className='feedback_item'>
+                        <div className='f_name'>Assigned By</div>
+                        <div className='f_value'>: {selectedOngoingTreatment.doctorInfo.firstName} {selectedOngoingTreatment.doctorInfo.lastName}</div>
+                      </div>
+                      <div className='feedback_item'>
+                        <div className='f_name'>Evaluated By</div>
+                        <div className='f_value'>: {doctorProfileData.firstName} {doctorProfileData.lastName}</div>
+                      </div>
+                      <div className='feedback_item'>
+                        <div className='f_name'>Status</div>
+                        <div className='status_value'>
+                          <div className='positive'>
+                            <input type='radio' value='Positive' checked={status === 'Positive'} onChange={(e) => setStatus(e.target.value)} />
+                            Positive
+                          </div>
+                          <div className='negative'>
+                            <input type='radio' value='Negative' checked={status === 'Negative'} onChange={(e) => setStatus(e.target.value)} />
+                            Negative
+                          </div>
+                        </div>
+                      </div>
+                      <div className='feedback_note'>
+                        <div className='f_name'>Feedback note</div>
+                        <textarea value={feedbackNote} onChange={(e) => setFeedbackNote(e.target.value)} required />
+                      </div>
+                      <div className='feedback_button'>
+                        <SubTextButton text={isSubmitting ? 'Submitting...' : 'Submit'} type='submit' disabled={isSubmitting} height="26px" width="160px" />
+                      </div>
+                  </div>
+                  </form>
+                </div>
+              )}
+            </div>
+            
+            ) : (
+              <div className='checkup-feedback-form-false'>
+                <div>Select a checkup to evaluate & give a feedback</div>
+              </div>
+            )}
+          </div>
+        </Card>
+      </div>
+    )}
+    {isClickCloseTreatment && (
+      <div className='popup'>
+        
+        <Card width="40%" height="40vh">
+          <div className="popup-title">
+            Close Ongoing Treatment         
+            <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseCloseTreatment} />
+          </div>
+          {areAllCheckupsEvaluated(selectedOngoingTreatment.checkups) ? (
+            <div>
+              <div className='werning-message'>
+                {React.cloneElement(<CiCircleQuestion /> , { size: 20, color: "#970000", })}
+                <div className='w-msg'>Are you sure want to close this ongoing treatment ?</div>
+              </div>  
+              <div className='reason-container'>
+                <label>Reason for closing the treatment</label>
+                <input type='text' value={reason} onChange={handelReasonChange}/>
+              </div>
+              <div className='addmh-container'>
+                <input type='checkbox' checked={addTOMedicalHistory} onChange={handleCheckboxChange} />
+                <div className='addmh-note'>Add to the patient's medical history.</div>
+              </div>
+              <div className='ct-button'>
+                <SubTextButton text="Close Treatment" height="28px" width="200px" onClick={handleCloseTreatment} />
+              </div>
+            </div>
+             ) : (
+              <div className='treatmentclose-false'>
+                  {React.cloneElement(<CiWarning /> , { size: 40, color: "#970000", })}
+                  <div className='treatmentclose-false-note'>
+                    Assigned checkup or checkups are not evaluated yet !<br/>
+                    Please, Evaluated checkups that are not evaluated yet, before close the treatmenat.
+                  </div>
+                  <Button text="Open Checkups" height="28px" width="160px" onClick={handleCloseOpenCheckupList} />
+              </div>
+            )}
+        </Card>
+      </div>
     )}
     {notification && (
             <Notification 

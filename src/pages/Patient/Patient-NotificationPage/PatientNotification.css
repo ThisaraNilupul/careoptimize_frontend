@@ -42,7 +42,7 @@
     cursor: pointer;
     font-weight: 400; 
     border-left: 2px solid #175e01;
-    background-color: rgb(86, 255, 112);
+    background-color: rgba(151, 255, 167, 0.622);
 }
 
 .categoryItem .all-count {
@@ -132,6 +132,12 @@
 
 .header-content .datetime {
     width: 14vw;
+}
+
+.notification-content {
+    
+    max-height: 68vh;
+    overflow-y: auto;
 }
 
 .notification-content .notification {

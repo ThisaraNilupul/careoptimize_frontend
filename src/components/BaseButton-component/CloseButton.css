@@ -1,0 +1,16 @@
+.close-button {
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 1rem; */
+    /* color: rgb(25, 25, 25); */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: rgb(9, 9, 9);
+    background-color: rgba(175, 183, 175, 0.749);
+  }

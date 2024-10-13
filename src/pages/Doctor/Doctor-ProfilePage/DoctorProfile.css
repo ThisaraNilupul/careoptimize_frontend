@@ -46,10 +46,10 @@
 .doctor-profile-container .card-content .content-item{
     margin-bottom: 5px;
     display: flex;
-    justify-content: space-between;
 }
 
 .doctor-profile-container .card-content .content-item .item-name{
+    width: 7vw;
     font-size: 1rem;
     font-weight: 500;
     color: #333;
@@ -65,4 +65,11 @@
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
+}
+
+.card-content .content-item .work-item-name {
+    width: 10vw;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
 }

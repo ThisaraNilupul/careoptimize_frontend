@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../../../components/BaseButton-component/Button';
-import SubButton from '../../../components/BaseButton-component/SubButton';
 import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 import Notification from '../../../components/AlertNotification-component/Notification';
 import Card from '../../../components/BaseCard-component/Card';
 import './PatientOngoingTreatment.css';
 import { LuX, LuChevronsLeftRight } from "react-icons/lu";
+import CloseButton from '../../../components/BaseButton-component/CloseButton';
 
 
 function PatientOngoingTreatment() {
@@ -58,23 +57,23 @@ function PatientOngoingTreatment() {
             <Card width="390px" height="200px">
               <div className='t_card-item'>
                 <div className='t_itemname'>Treatment Id</div>
-                <div className='t_itemvalue'>{treatmet._id}</div>
+                <div className='t_itemvalue'>: {treatmet._id}</div>
               </div>
               <div className='t_card-item'>
                 <div className='t_itemname'>Diagnosis Name</div>
-                <div className='t_itemvalue'>{treatmet.diagnosis}</div>
+                <div className='t_itemvalue'>: {treatmet.diagnosis}</div>
               </div>
               <div className='t_card-item'>
                 <div className='t_itemname'>Start Date</div>
-                <div className='t_itemvalue'>{setdateFormat(treatmet.startDate)}</div>
+                <div className='t_itemvalue'>: {setdateFormat(treatmet.startDate)}</div>
               </div>
               <div className='t_card-item'>
                 <div className='t_itemname'>End Date</div>
-                <div className='t_itemvalue'>{setdateFormat(treatmet.endDate)}</div>
+                <div className='t_itemvalue'>: {setdateFormat(treatmet.endDate)}</div>
               </div>
               <div className='t_card-item'>
                 <div className='t_itemname'>Days to Complete</div>
-                <div className='t_itemvalue'>{treatmet.days}</div>
+                <div className='t_itemvalue'>: {treatmet.days}</div>
               </div>
               <div className='card-button'>
                 <SubTextButton text="Open" height="28px" width="100px" onClick={() => handleOpenCurrentTreatment(treatmet)}/>
@@ -92,30 +91,30 @@ function PatientOngoingTreatment() {
                       <div className='title-closebutton'>
                           On-going Treatment -
                         <div className='header-group-item'>
-                            <div className='itemname'>Start Date: </div>
+                            <div className='itemname-d'>Start Date: </div>
                             <div className='itemvalue'>{setdateFormat(selectedOngoingTreatment.startDate)}</div>
                         </div>
                         <LuChevronsLeftRight />
                         <div className='header-group-item'>
-                            <div className='itemname'>End Date:</div>
+                            <div className='itemname-d'>End Date:</div>
                             <div className='itemvalue'>{setdateFormat(selectedOngoingTreatment.endDate)}</div>
                         </div>
                       </div>
-                      <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseCurrentTreatment} />
+                      <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseCurrentTreatment} />
                   </div>
                   <div className='treatment-details'>
                     <div className='details-group-one'>
                       <div className='group-item'>
                         <div className='itemname'>Diagnosis</div>
-                        <div className='itemvalue'>{selectedOngoingTreatment.diagnosis}</div>
+                        <div className='itemvalue'>: {selectedOngoingTreatment.diagnosis}</div>
                       </div>
                       <div className='group-item-des'>
                         <div className='itemname'>Diagnosis description</div>
-                        <div className='itemvalue'>{selectedOngoingTreatment.diagnosisDescription}</div>
+                        <div className='itemvalue'>: {selectedOngoingTreatment.diagnosisDescription}</div>
                       </div>
                       <div className='group-item-des'>
                         <div className='itemname'>prescription</div>
-                        <div className='itemvalue'>{selectedOngoingTreatment.prescription}</div>
+                        <div className='itemvalue'>: {selectedOngoingTreatment.prescription}</div>
                       </div>
                     </div>
                   </div>

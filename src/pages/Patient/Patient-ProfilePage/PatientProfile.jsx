@@ -3,6 +3,8 @@ import Card from '../../../components/BaseCard-component/Card';
 import './PatientProfile.css';
 import Button from '../../../components/BaseButton-component/Button';
 import SubButton from '../../../components/BaseButton-component/SubButton';
+import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
+import CloseButton from '../../../components/BaseButton-component/CloseButton';
 import Notification from '../../../components/AlertNotification-component/Notification';
 import { LuPlus, LuPencilLine, LuListOrdered, LuFileText, LuX, LuTrash2, LuHeartPulse } from "react-icons/lu";
 import axios from 'axios';
@@ -402,52 +404,53 @@ function PatientProfile() {
                 <div className='card-content'>
                     <div className='content-item'>
                         <div className='item-name'>Name</div>
-                        <div className='item-value'>{patinerProfileData.firstName} {patinerProfileData.lastName}</div>
+                        <div className='item-value'>: {patinerProfileData.firstName} {patinerProfileData.lastName}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Address</div>
-                        <div className='item-value'>{patinerProfileData.addressNo}, {patinerProfileData.street}, {patinerProfileData.city} / {patinerProfileData.province} Province</div>
+                        <div className='item-value'>: {patinerProfileData.addressNo}, {patinerProfileData.street}, {patinerProfileData.city} / {patinerProfileData.province} Province</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>NIC</div>
-                        <div className='item-value'>{patinerProfileData.nic}</div>
+                        <div className='item-value'>: {patinerProfileData.nic}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Phone No</div>
-                        <div className='item-value'>{patinerProfileData.phoneNumber}</div>
+                        <div className='item-value'>: {patinerProfileData.phoneNumber}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>email</div>
-                        <div className='item-value'>{patinerProfileData.email}</div>
+                        <div className='item-value'>: {patinerProfileData.email}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Birthday</div>
-                        <div className='item-value'>{patinerProfileData.birthday}</div>
+                        <div className='item-value'>: {patinerProfileData.birthday}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Gender</div>
-                        <div className='item-value'>{patinerProfileData.gender}</div>
+                        <div className='item-value'>: {patinerProfileData.gender}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Blood Type</div>
-                        <div className='item-value'>{patinerProfileData.biodata.bloodType}</div>
+                        <div className='item-value'>: {patinerProfileData.biodata.bloodType}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Height</div>
-                        <div className='item-value'>{patinerProfileData.biodata.height}</div>
+                        <div className='item-value'>: {patinerProfileData.biodata.height}</div>
                     </div>
                     <div className='content-item'>
                         <div className='item-name'>Weight</div>
-                        <div className='item-value'>{patinerProfileData.biodata.weight}</div>
+                        <div className='item-value'>: {patinerProfileData.biodata.weight}</div>
                     </div>
-                    <div className='content-item'>
-                        <Card width="100%" height="22vh">
-                            <div className='card-title'>Health Issues  
-                                <div className='button-group'>
-                                    <SubButton icon={<LuPlus />} height="30px" width="60px" onClick={handelAddHIButton}/>
-                                    <SubButton icon={<LuListOrdered />} height="30px" width="60px" onClick={handleOpenHI}/>
-                                </div>
-                            </div>
+                </div>    
+                <div className='card-title'>Health Issues  
+                    <div className='button-group'>
+                        <SubButton icon={<LuPlus />} height="30px" width="60px" onClick={handelAddHIButton}/>
+                        <SubButton icon={<LuListOrdered />} height="30px" width="60px" onClick={handleOpenHI}/>
+                    </div>
+                </div>
+                <div className='card-content'>            
+                    <div className='content-item'>        
                             <div className='card-content'>
                                  <div className='item-scrollable'>
                                     {patinerProfileData.healthIssues && patinerProfileData.healthIssues.map((issue, index) => (
@@ -457,8 +460,8 @@ function PatientProfile() {
                                     ))}
                                  </div>
                             </div>
-                        </Card>
-                    </div>
+                        </div>
+                    
                 </div>
             </Card>
             <Card width="42%" height="76vh">
@@ -481,7 +484,7 @@ function PatientProfile() {
             <div className="popup">
                 <Card width="50%" height="60vh">
                     <div className="popup-title">Edit Personal Info
-                        <SubButton icon={<LuX />} height="30px" width="30px" onClick={handlePIClose} />
+                        <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handlePIClose} />
                     </div>
                     <form onSubmit={handleUpdatePI}>
                         <div className='form-item'>
@@ -525,7 +528,7 @@ function PatientProfile() {
                             <input type="text" name="weight" value={editPIData.weight} onChange={(e) => setEditPIData({...editPIData, weight: e.target.value})}/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <Button text="Save" type='submit' height="35px" width="200px" />
+                            <SubTextButton text="Edit & Save" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>
@@ -535,7 +538,7 @@ function PatientProfile() {
             <div className="popup">
                 <Card width="50%" height="60vh">
                     <div className="popup-title">Add Health Issues
-                        <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleAddHIClose} />
+                        <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleAddHIClose} />
                     </div>
                     <form onSubmit={handleAddHealthIssue}>
                         <div className='healthissueform-item'>
@@ -543,7 +546,7 @@ function PatientProfile() {
                             <textarea  type="text" name="issue"  value={issue}  onChange={(e) => setIssue(e.target.value)} required/>
                         </div>
                         <div className='healthissueadd-button'>
-                            <Button text="Save" type='submit' height="35px" width="200px" />
+                            <SubTextButton text="Save" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>
@@ -553,7 +556,7 @@ function PatientProfile() {
               <div className="popup">
               <Card width="50%" height="60vh">
                   <div className="popup-title">Update Health Issues
-                      <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseUpdateHealthIssue} />
+                      <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseUpdateHealthIssue} />
                   </div>
                   <form onSubmit={handleUpdateHealthIssue}>
                       <div className='healthissueform-item'>
@@ -561,7 +564,7 @@ function PatientProfile() {
                           <textarea  type="text" name="issue"  value={issueDescription}  onChange={(e) => setIssueDescription(e.target.value)} required/>
                       </div>
                       <div className='healthissueadd-button'>
-                          <Button text="Save" type='submit' height="35px" width="200px" />
+                          <SubTextButton text="Save" type='submit' height="28px" width="200px" />
                       </div>
                   </form>
               </Card>
@@ -571,7 +574,7 @@ function PatientProfile() {
             <div className="popup">
                 <Card width="50%" height="60vh">
                     <div className="popup-title">Health Issues
-                        <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseHI} />
+                        <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseHI} />
                     </div>
                     <div className='popup-content'>
                         {patinerProfileData.healthIssues && patinerProfileData.healthIssues.map((issue, index) => (
@@ -593,32 +596,32 @@ function PatientProfile() {
             <div className="popup">
                 <Card width="50%" height="60vh">
                     <div className="popup-title">Relative Info
-                        <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseRelative} />
+                        <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseRelative} />
                     </div>
                     <div className='card-content'>
                         <div className='content-item'>
                             <div className='item-name'>Name</div>
-                            <div className='item-value'>{selectedRelative.firstName} {selectedRelative.lastName}</div>
+                            <div className='item-value'>: {selectedRelative.firstName} {selectedRelative.lastName}</div>
                         </div>
                         <div className='content-item'>
                             <div className='item-name'>Address</div>
-                            <div className='item-value'>{selectedRelative.addressNo}, {selectedRelative.street}, {selectedRelative.city} / {selectedRelative.province} Province</div>
+                            <div className='item-value'>: {selectedRelative.addressNo}, {selectedRelative.street}, {selectedRelative.city} / {selectedRelative.province} Province</div>
                         </div>
                         <div className='content-item'>
                             <div className='item-name'>NIC</div>
-                            <div className='item-value'>{selectedRelative.nic}</div>
+                            <div className='item-value'>: {selectedRelative.nic}</div>
                         </div>
                         <div className='content-item'>
                             <div className='item-name'>Phone No</div>
-                            <div className='item-value'>{selectedRelative.phoneNumber}</div>
+                            <div className='item-value'>: {selectedRelative.phoneNumber}</div>
                         </div>
                         <div className='content-item'>
                             <div className='item-name'>email</div>
-                            <div className='item-value'>{selectedRelative.email}</div>
+                            <div className='item-value'>: {selectedRelative.email}</div>
                         </div>
                         <div className='content-item'>
                             <div className='item-name'>Relationship</div>
-                            <div className='item-value'>{selectedRelative.relationship}</div>
+                            <div className='item-value'>: {selectedRelative.relationship}</div>
                         </div>
                         <div className='relativebutton-group'>
                             <SubButton icon={<LuTrash2 />} height="30px" width="60px" onClick={handleDeleteRelative}/>
@@ -632,7 +635,7 @@ function PatientProfile() {
             <div className="popup">
                 <Card width="50%" height="60vh">
                     <div className="popup-title">Add Relative
-                        <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseAddRelative} />
+                        <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseAddRelative} />
                     </div>
                     <form onSubmit={onSubmitAddRelative}>
                         <div className='form-item'>
@@ -676,7 +679,7 @@ function PatientProfile() {
                             <input type="text" name="relationship" value={relationship} onChange={onChange} required/>
                         </div>
                         <div className='relative-savebutton'>
-                         <Button text="Save" type='submit' height="35px" width="200px" />
+                         <SubTextButton text="Save" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>
@@ -686,7 +689,7 @@ function PatientProfile() {
             <div className="popup">
                 <Card width="50%" height="60vh">
                     <div className="popup-title">Edit Relative Info 
-                        <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseUpdateRelative} />
+                        <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseUpdateRelative} />
                     </div>
                     <form onSubmit={handleUpdateRelative}>
                         <div className='form-item'>
@@ -730,7 +733,7 @@ function PatientProfile() {
                             <input type="text" name="relationship" value={editRelativeData.relationship} onChange={(e) => setEditRelativeData({...editRelativeData, relationship: e.target.value})} required/>
                         </div>
                         <div className='relative-savebutton'>
-                        <Button text="Edit & Save" type='submit' height="35px" width="200px" />
+                        <SubTextButton text="Edit & Save" type='submit' height="28px" width="200px" />
                     </div>
                     </form>
                 </Card>
@@ -740,7 +743,7 @@ function PatientProfile() {
             <div className="popup">
                 <Card width="50%" height="60vh">
                     <div className="popup-title">Add Medical-Bio Info
-                        <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseAddMBData} />
+                        <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseAddMBData} />
                     </div>
                     <form onSubmit={onSubmitAddMedicalBioData}>
                         <div className='form-item'>
@@ -766,7 +769,7 @@ function PatientProfile() {
                             <input type="text"  name="weight" value={weight} onChange={onChangeMBData} required/>
                         </div>
                         <div className='relative-savebutton'>
-                            <Button text="Save" type='submit' height="35px" width="200px" />
+                            <SubTextButton text="Save" type='submit' height="28px" width="200px" />
                         </div>
                     </form>
                 </Card>

@@ -45,6 +45,7 @@ function DoctorAddTreatment() {
     days: '', 
     treatmentPlans: treatmentList,
     doctorInfo: {
+      doctorId: '',
       firstName: '',
       lastName: '',
       title: '',
@@ -100,6 +101,7 @@ function DoctorAddTreatment() {
         setNewTreatmentForm(prevForm => ({
           ...prevForm,
           doctorInfo: {
+            doctorId: doctorID,
             firstName: data.firstName,
             lastName: data.lastName,
             title: data.doctorInfo.specialistArea,
@@ -378,23 +380,23 @@ function DoctorAddTreatment() {
               <div className='s_item-container'>
                 <div className='s_item'>
                   <div className='s_name'>Name</div>
-                  <div className='s_value'>{`${selectedPatient.firstName} ${selectedPatient.lastName}`}</div>
+                  <div className='s_value'>: {`${selectedPatient.firstName} ${selectedPatient.lastName}`}</div>
                 </div>
                 <div className='s_item'>
                   <div className='s_name'>Age</div>
-                  <div className='s_value'>{calculateAge(selectedPatient.birthday)}</div>
+                  <div className='s_value'>: {calculateAge(selectedPatient.birthday)}</div>
                 </div>
                 <div className='s_item'>
                   <div className='s_name'>Gender</div>
-                  <div className='s_value'>{selectedPatient.gender}</div>
+                  <div className='s_value'>: {selectedPatient.gender}</div>
                 </div>
                 <div className='s_item'>
                   <div className='s_name'>Phone No.</div>
-                  <div className='s_value'>{selectedPatient.phoneNumber}</div>
+                  <div className='s_value'>: {selectedPatient.phoneNumber}</div>
                 </div>
                 <div className='s_item'>
                   <div className='s_name'>Email</div>
-                  <div className='s_value'>{selectedPatient.email}</div>
+                  <div className='s_value'>: {selectedPatient.email}</div>
                 </div>
               </div>
               <div className='s_title'>Patient's Health Issues & Allergies</div>

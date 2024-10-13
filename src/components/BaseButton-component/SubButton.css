@@ -1,15 +1,17 @@
 .sub-custom-button {
-    padding: 7px;
+    padding: 5px;
     font-size: 1rem;
-    background-color:rgba(255, 178, 95, 1);
-    color: rgb(255, 255, 255);
+    background-color: #f1f1f1;
+    color: rgb(20, 255, 67);
     border: none;
     border-radius: 15px;
+    /* border: 2px solid rgb(32, 220, 36); */
     cursor: pointer;
   }
   
   .sub-custom-button:hover {
-      background-color: rgba(255, 110, 19, 0.741);
+    color: rgb(9, 9, 9);
+    background-color: rgba(175, 183, 175, 0.749);
   }
 
 

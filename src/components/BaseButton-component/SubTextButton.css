@@ -1,15 +1,16 @@
 .subtext-custom-button {
     padding: 7px;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
-    background-color:rgba(255, 178, 95, 1);
-    color: rgb(0, 0, 0);
+    background-color:rgb(32, 220, 36);
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
   .subtext-custom-button:hover {
-      background-color: rgba(255, 110, 19, 0.741);
+    font-weight: 600;
+    background-color: rgba(175, 183, 175, 0.749);
   }

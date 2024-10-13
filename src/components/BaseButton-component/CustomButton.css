@@ -1,5 +1,8 @@
 .custom-button {
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
   letter-spacing: 1px;
   background-color:#1e281e;

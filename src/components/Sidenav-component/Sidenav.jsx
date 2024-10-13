@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { CiLogout } from "react-icons/ci";
 
 import './Sidenav.css';
-import { ReactComponent as Logo } from '../../assets/Logo1.svg';
+import { ReactComponent as Logo } from '../../assets/greenLogo.svg';
 
 const Sidenav = ({menu}) => {
   const location = useLocation();
