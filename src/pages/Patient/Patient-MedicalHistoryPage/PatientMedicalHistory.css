@@ -1,0 +1,325 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.medicalhistory {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.medicalhistory-conten {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.medicalhistory-conten .treatmenthistory-title {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.treatmenthistory-container {
+    height: 68vh;
+    max-height: 68vh;
+    overflow-y: auto;
+}
+
+.treatmenthistory-container-false {
+    height: 68vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #999;
+    background-color: #f1f1f1;
+}
+
+.years-list {
+    margin-bottom: 12px;
+}
+
+.yeargroup {
+    margin-bottom: 8px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+    background-color: rgb(195, 255, 180);
+}
+
+.yeargroup .i-year {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.treatment-list .treatment {
+    margin: 3px 0px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    background-color: #f1f1f1;
+}
+
+.treatment .treatment-name {
+    width: 30vw;
+    display: flex;
+}
+
+.treatment .treatment-date {
+    width: 10vw;
+    display: flex;
+}
+
+.t-tag {
+    margin-right: 3px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.download-copy-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.info-container {
+    display: flex;
+    gap: 10px;
+}
+
+.info-container .doctor-info {
+    padding: 20px;
+    width: 20vw;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(195, 255, 180);
+}
+
+.doctor-info .title,
+.treatment-info .title,
+.checkups-info .title {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.doctor-info .closedreason {
+    margin-bottom: 10px;
+}
+
+.closedreason .cr-item {
+    padding: 5px 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #3b3b3b;
+}
+
+.doctor-info .adoctor-info {
+    margin-bottom: 15px;
+}
+
+.doctor-info .adclinic-info {
+    margin-bottom: 20px;
+}
+
+.ad-item {
+    font-size: 0.9rem;
+    color: #3b3b3b;
+}
+
+.info-container .treatment-info {
+    padding: 20px;
+    width: 46.5vw;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(180, 235, 255);
+}
+
+.treatment-info .t-detalis {
+    padding: 5px;
+}
+
+.t-detalis .detail-item {
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.detail-item .ditem-name {
+    margin-right: 5px;
+    width: 6vw;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.detail-item .ditem-value {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #3b3b3b;
+}
+
+.info-container .checkups-info {
+    padding: 20px;
+    width: 25vw;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(255, 245, 180);
+}
+
+.sheduleheader {
+    margin-bottom: 5px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-bottom: 2px solid blue;
+    color: #000000;
+    background-color: aqua;
+}
+
+.sheduleheader .sh-name,
+.shedulevalues .sh-name {
+    width: 15vw;
+}
+
+.sheduleheader .sh-time {
+    width: 12vw;
+    display: flex;
+    justify-content: center;
+}
+
+.sheduleheader .sh-dosage,
+.shedulevalues .sh-dosage {
+    width: 9vw;
+    display: flex;
+    justify-content: center;
+}
+
+.sheduleheader .sh-houtly,
+.shedulevalues .sh-houtly {
+    width: 8vw;
+    display: flex;
+    justify-content: center;
+}
+
+.sheduleheader .sh-meal,
+.shedulevalues .sh-meal {
+    width: 8vw;
+}
+
+.sedule-items {
+    max-height: 35vh;
+    overflow-y: auto;
+}
+
+.shedulevalues {
+    margin: 5px 0;
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: #ffffff7f;
+}
+
+.shedulevalues .sh-time {
+    width: 15vw;
+    max-width: 10vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sh-time .sh-timetab {
+    margin: 1px;
+    padding: 4px 10px 5px 10px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.sh-meal .sh-mealtab {
+    padding: 4px 10px 5px 10px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.checkups-container .checkup-header {
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-bottom: 2px solid rgb(255, 119, 0);
+    color: #000000;
+    background-color: rgb(255, 225, 0);
+}
+
+.checkup-header .ch-name {
+    width: 13vw;
+}
+
+.checkup-header .ch-date {
+    width: 6vw;
+}
+
+.checkup-items {
+    max-height: 59vh;
+    overflow-y: auto;
+}
+
+.checkup-items .checkup{
+    margin: 5px 0;
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: #ffffff7f;
+}
+
+.checkup .ch-name {
+    width: 13vw;
+}
+
+.checkup .ch-date {
+    width: 6vw;
+}
+
+.checkup .ch-status {
+    width: 3vw;
+    display: flex;
+    justify-content: center;
+
+}

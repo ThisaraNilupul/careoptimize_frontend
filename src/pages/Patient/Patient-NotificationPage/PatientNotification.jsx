@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from '../../../components/BaseCard-component/Card';
+import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 import { CiMail, CiChat1, CiBellOn, CiMedicalClipboard, CiSettings } from "react-icons/ci";
 import './PatientNotification.css'
 
@@ -54,9 +55,9 @@ function PatientNotification() {
   return (
     <div className='patientNotifications'>
         <div className='searchbar-container'>
-            <div>Notifications</div>
-            <div>
-                
+            <div className='searchbar-button'>
+                <SubTextButton text="Apply Filter" height="28px" width="200px"  />
+                <SubTextButton text="Refresh" height="28px" width="200px"  />
             </div>
         </div>
         <Card width="81vw" height="78vh">

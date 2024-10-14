@@ -11,6 +11,7 @@ import DoctorHome from '../pages/Doctor/Doctor-HomePage/DoctorHome';
 import DoctorAddTreatment from '../pages/Doctor/Doctor-AddTreatmentPage/DoctorAddTreatment';
 import PatientsOverView from '../pages/Doctor/Doctor-PatientsOverView/PatientsOverView';
 import PatientNotification from '../pages/Patient/Patient-NotificationPage/PatientNotification';
+import PatientMedicalHistory from '../pages/Patient/Patient-MedicalHistoryPage/PatientMedicalHistory';
 
 export const AppRoutes = [
   //patient routes
@@ -19,9 +20,9 @@ export const AppRoutes = [
   { path: '/patient/home', component: <PatientHome /> },
   { path: '/patient/appointments', component: <PatientAppointment /> },
   { path: '/patient/ongoing-treatment', component: <PatientOngoingTreatment /> },
+  { path: '/patient/medical-history', component: <PatientMedicalHistory /> },
   { path: '/patient/notifications', component: <PatientNotification /> },
   { path: '/patient/calendar', component: <PatientCalendar /> },
-//   { path: '/patient/emergency', component: <PatientEmergency /> },
   { path: '/patient/profile', component: <PatientProfile />},
 
   //doctor routes

@@ -32,6 +32,7 @@ const MainHeader = ({location, firstname, lastname}) => {
       '/patient/appointments': 'Appointments',
       '/patient/ongoing-treatment': 'Ongoing Treatments',
       '/patient/notifications' : 'Notifications',
+      '/patient/medical-history' : 'Medical History',
       '/patient/calendar' : 'Calendar',
       '/patient/profile' : 'Profile',
       '/doctor/home': 'Home',

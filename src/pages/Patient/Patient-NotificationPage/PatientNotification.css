@@ -10,6 +10,12 @@
     gap: 20px;
 }
 
+.searchbar-container .searchbar-button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .cardnotification {
     display: flex;
 }
