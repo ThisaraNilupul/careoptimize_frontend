@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
+import { ReactComponent as Treatment } from '../../../assets/Treatment.svg';
 import Notification from '../../../components/AlertNotification-component/Notification';
 import Card from '../../../components/BaseCard-component/Card';
 import './PatientOngoingTreatment.css';
 import { LuX, LuChevronsLeftRight } from "react-icons/lu";
 import CloseButton from '../../../components/BaseButton-component/CloseButton';
+import ButtonMain from '../../../components/BaseButton-component/Button';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import { green } from '@mui/material/colors';
+
+const greenMain = green.A400;
+const greenHover = green.A700;
 
 
 function PatientOngoingTreatment() {
@@ -76,34 +82,40 @@ function PatientOngoingTreatment() {
                 <div className='t_itemvalue'>: {treatmet.days}</div>
               </div>
               <div className='card-button'>
-                <SubTextButton text="Open" height="28px" width="100px" onClick={() => handleOpenCurrentTreatment(treatmet)}/>
+                <ButtonMain text="Open" height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={() => handleOpenCurrentTreatment(treatmet)} icon={<HealthAndSafetyIcon />}/>
               </div>
             </Card>
           </div>
         ))
       ) : (
-        <div className='patient-OngoingTreatment-container-false'>There is no On-going Treatments currently going on.</div>
+        <div className='patient-OngoingTreatment-container-false'>
+          <Treatment width="30%" height="40%" />
+          <div className='msg-one'>There are no ongoing treatments at the moment.</div>
+          <div className='msg-two'>Please check back later or consult with your healthcare provider for further updates.</div>
+        </div>
       )}
       {isOpenTreatment && (
             <div className='popup'>
                 <Card width="70%" height="80vh">
                   <div className="popup-title">
                       <div className='title-closebutton'>
-                          On-going Treatment -
-                        <div className='header-group-item'>
-                            <div className='itemname-d'>Start Date: </div>
-                            <div className='itemvalue'>{setdateFormat(selectedOngoingTreatment.startDate)}</div>
-                        </div>
-                        <LuChevronsLeftRight />
-                        <div className='header-group-item'>
-                            <div className='itemname-d'>End Date:</div>
-                            <div className='itemvalue'>{setdateFormat(selectedOngoingTreatment.endDate)}</div>
-                        </div>
+                          On-going Treatment
                       </div>
                       <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseCurrentTreatment} />
                   </div>
                   <div className='treatment-details'>
                     <div className='details-group-one'>
+                      <div className='datereange-group-item'>
+                        <div className='header-group-item'>
+                            <div className='t-itemname'>Start Date: </div>
+                            <div className='t-itemvalue'>{setdateFormat(selectedOngoingTreatment.startDate)}</div>
+                        </div>
+                        <LuChevronsLeftRight />
+                        <div className='header-group-item'>
+                            <div className='t-itemname'>End Date:</div>
+                            <div className='t-itemvalue'>{setdateFormat(selectedOngoingTreatment.endDate)}</div>
+                        </div>
+                      </div>
                       <div className='group-item'>
                         <div className='itemname'>Diagnosis</div>
                         <div className='itemvalue'>: {selectedOngoingTreatment.diagnosis}</div>
