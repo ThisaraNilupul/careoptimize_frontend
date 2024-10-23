@@ -387,9 +387,10 @@
     justify-content: space-between;
     gap: 20px;
     font-size: 0.9rem;
+    font-weight: 500;
     border-radius: 5px;
-    border-bottom: 2px solid rgba(255, 110, 19, 0.741);
-    background-color:  antiquewhite;
+    border-bottom: 2px solid rgba(16, 110, 9, 0.878);
+    background-color:  #00e676;
 }
 
 .medical-checkup-content .content-list .content-item{
@@ -423,9 +424,10 @@
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
+    font-weight: 500;
     border-radius: 5px;
-    border-bottom: 3px solid rgba(255, 110, 19, 0.741);
-    background-color: antiquewhite;
+    border-bottom: 3px solid rgba(16, 110, 9, 0.878);
+    background-color: #00e676;
 }
 
 .treatmet-content .treatmetcontent-list .treatmetcontent-values {
@@ -461,7 +463,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: rgba(252, 224, 187, 0.297);
+    background-color: #f1f1f1;
 }
 
 .addcheckup-form .addcheckup-content {

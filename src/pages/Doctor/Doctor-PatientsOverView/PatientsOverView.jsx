@@ -1,14 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../../../components/BaseCard-component/Card';
-import Button from '../../../components/BaseButton-component/Button';
+import ButtonMain from '../../../components/BaseButton-component/Button';
 import SubButton from '../../../components/BaseButton-component/SubButton';
 import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 import Notification from '../../../components/AlertNotification-component/Notification';
 import { LuSearch, LuChevronRight, LuBookOpen, LuX, LuChevronsLeftRight, LuSendHorizonal } from "react-icons/lu";
 import { CiCircleQuestion, CiWarning } from "react-icons/ci";
 import { RiFeedbackLine } from "react-icons/ri";
+import { ReactComponent as DoctorOne } from '../../../assets/Doctor1.svg';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import GppBadIcon from '@mui/icons-material/GppBad';
+import UpdateIcon from '@mui/icons-material/Update';
+import VerifiedIcon from '@mui/icons-material/Verified';
 import './PatientsOverView.css';
+import { green, yellow, red } from '@mui/material/colors';
+
+const redMain = red.A400;
+const redHover = red.A700;
+const greenMain = green.A400;
+const greenHover = green.A700;
+const yellowMain = yellow.A400;
+const yellowHover = yellow.A700;
 
 function PatientsOverView() {
   const doctorID = localStorage.getItem('userId');
@@ -383,11 +396,12 @@ function PatientsOverView() {
             </div> */}
             <div className='ss_title'>Patient's Medical History</div>
             <div className='View-medical-history-button'>
-                <SubTextButton text="View Medical History" height="40px" width="300px" />
+                <ButtonMain text="View Medical History" height="35px" width="250px" variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<ImportContactsIcon />}/>
             </div>
           </div>
         ) : (
           <div className='isSelectPatient-false'>
+              <DoctorOne width="20%" height="30%" />
               <div className='noteone'>No patient selected</div>
               <div  className='notetwo'>Please choose a patient to check the patient's over view.</div>
           </div>
@@ -400,10 +414,17 @@ function PatientsOverView() {
                   <div className="popup-title">
                       <div className='title-closebutton'>
                           On-going Treatment
-                          <Button text="Close Treatment" height="28px" width="160px" onClick={handelOpenCloseTreatment}/>
+                          <ButtonMain text="Close Treatment" height="28px" width="198px" variant="outlined" color="error" onClick={handelOpenCloseTreatment} icon={<GppBadIcon />}/>
+                          <ButtonMain text="Update Shedule" height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<UpdateIcon />}/>
                           {selectedOngoingTreatment.checkups.length > 0 ? (
-                          <SubTextButton text="Assigned Checkups" height="28px" width="160px" onClick={handleOpenCheckupList} />
+                          <ButtonMain text="Assigned Checkups" height="28px" width="220px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenCheckupList} icon={<VerifiedIcon />}/>
                           ) : (<div className='header-group-item'><div className='t-itemvalue'>No Checkups Assigned</div></div>)}
+                      </div>
+                      <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseOngoingTreatment} />
+                  </div>
+                  <div className='treatment-details'>
+                    <div className='details-group-one'>
+                      <div className='datereange-group-item'>
                         <div className='header-group-item'>
                             <div className='t-itemname'>Start Date : </div>
                             <div className='t-itemvalue'>{setdateFormat(selectedOngoingTreatment.startDate)}</div>
@@ -414,10 +435,6 @@ function PatientsOverView() {
                             <div className='t-itemvalue'>{setdateFormat(selectedOngoingTreatment.endDate)}</div>
                         </div>
                       </div>
-                      <SubButton icon={<LuX />} height="30px" width="30px" onClick={handleCloseOngoingTreatment} />
-                  </div>
-                  <div className='treatment-details'>
-                    <div className='details-group-one'>
                       <div className='group-item'>
                         <div className='itemname'>Diagnosis</div>
                         <div className='itemvalue'>{selectedOngoingTreatment.diagnosis}</div>
@@ -435,7 +452,6 @@ function PatientsOverView() {
                   <div className='treatment-shedule'>
                     <div className='shedule-header'>
                       Current Treatment Shedule
-                      <SubTextButton text="Update Shedule" height="26px" width="160px" />
                     </div>
                     <div className='shedule-container'>
                       <div className='scontainer-header'>
@@ -547,7 +563,7 @@ function PatientsOverView() {
                         <textarea value={feedbackNote} onChange={(e) => setFeedbackNote(e.target.value)} required />
                       </div>
                       <div className='feedback_button'>
-                        <SubTextButton text={isSubmitting ? 'Submitting...' : 'Submit'} type='submit' disabled={isSubmitting} height="26px" width="160px" />
+                        <ButtonMain text={isSubmitting ? 'Submitting...' : 'Submit'} type='submit' disabled={isSubmitting}  height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<VerifiedIcon />}/>
                       </div>
                   </div>
                   </form>
@@ -597,7 +613,7 @@ function PatientsOverView() {
                     Assigned checkup or checkups are not evaluated yet !<br/>
                     Please, Evaluated checkups that are not evaluated yet, before close the treatmenat.
                   </div>
-                  <Button text="Open Checkups" height="28px" width="160px" onClick={handleCloseOpenCheckupList} />
+                  <ButtonMain text="Open Checkups" height="28px" width="160px" onClick={handleCloseOpenCheckupList} />
               </div>
             )}
         </Card>

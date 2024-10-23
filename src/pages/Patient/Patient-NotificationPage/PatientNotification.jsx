@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from '../../../components/BaseCard-component/Card';
-import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 import { CiMail, CiChat1, CiBellOn, CiMedicalClipboard, CiSettings } from "react-icons/ci";
 import './PatientNotification.css'
+import ButtonMain from '../../../components/BaseButton-component/Button';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import CachedIcon from '@mui/icons-material/Cached';
+import { green, yellow, red } from '@mui/material/colors';
+
+const redMain = red.A400;
+const redHover = red.A700;
+const greenMain = green.A400;
+const greenHover = green.A700;
+const yellowMain = yellow.A400;
+const yellowHover = yellow.A700;
 
 function PatientNotification() {
     const userID = localStorage.getItem('userId');
@@ -56,8 +66,8 @@ function PatientNotification() {
     <div className='patientNotifications'>
         <div className='searchbar-container'>
             <div className='searchbar-button'>
-                <SubTextButton text="Apply Filter" height="28px" width="200px"  />
-                <SubTextButton text="Refresh" height="28px" width="200px"  />
+                <ButtonMain text="Apply Filter" height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<FilterAltIcon />}/>
+                <ButtonMain text="Refresh" height="28px" width="200px" variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<CachedIcon />}/>
             </div>
         </div>
         <Card width="81vw" height="78vh">

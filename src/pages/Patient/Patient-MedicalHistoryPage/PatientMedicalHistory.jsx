@@ -8,6 +8,13 @@ import { TfiAngleDown, TfiAngleUp } from "react-icons/tfi";
 import { TbActivityHeartbeat, TbReportMedical, TbThumbUp, TbZoomCancel  } from "react-icons/tb";
 import { LuX } from "react-icons/lu";
 import axios from 'axios';
+import ButtonMain from '../../../components/BaseButton-component/Button';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import DownloadIcon from '@mui/icons-material/Download';
+import { green } from '@mui/material/colors';
+
+const greenMain = green.A400;
+const greenHover = green.A700;
 
 function PatientMedicalHistory() {
   const patientId = localStorage.getItem('userId');
@@ -88,7 +95,7 @@ function PatientMedicalHistory() {
   return (
     <div className='medicalhistory'>
       <div className='filter'>
-        <SubTextButton text="Apply Filter" height="28px" width="200px" />
+        <ButtonMain text="Apply Filter" height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<FilterAltIcon />}/>
       </div>
       <div className='medicalhistory-conten'>
         <Card width="55vw" height="78vh">
@@ -133,7 +140,7 @@ function PatientMedicalHistory() {
                 <div className="popup-title">
                     <div className='download-copy-title'>
                         Treatment Info
-                        <SubTextButton text="Download PDF copy" height="28px" width="200px" />
+                        <ButtonMain text="Download PDF" height="28px" width="200px"  variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<DownloadIcon />}/>
                     </div>
                     <CloseButton icon={<LuX />} height="30px" width="30px" onClick={handelCloseTreatment} />
                 </div>

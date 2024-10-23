@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../../components/BaseCard-component/Card';
-import Button from '../../../components/BaseButton-component/Button';
+import ButtonMain from '../../../components/BaseButton-component/Button';
 import SubButton from '../../../components/BaseButton-component/SubButton';
 import Notification from '../../../components/AlertNotification-component/Notification';
 import { LuPlus, LuPencilLine, LuListOrdered, LuFileText, LuX, LuTrash2, LuHeartPulse } from "react-icons/lu";
+import AddIcon from '@mui/icons-material/Add';
+import SendIcon from '@mui/icons-material/Send';
 import axios from 'axios';
 import './DoctorProfile.css';
-import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
+import { green, yellow } from '@mui/material/colors';
+
+const greenMain = green.A400;
+const greenHover = green.A700;
+const yellowMain = yellow.A400;
+const yellowHover = yellow.A700;
 
 
 function DoctorProfile() {
@@ -304,9 +311,9 @@ function DoctorProfile() {
   return (
     <div className='doctor-profile'>
         <div className='doctor-profile-button-container'>
-            <Button text="Add New Work At" height="40px" width="300px" onClick={handleOpenAddWorkAtPopup}/>
+            <ButtonMain text="Add New Work At" height="35px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}onClick={handleOpenAddWorkAtPopup} icon={<AddIcon/>}/>
             {(!doctorProfileData.doctorInfo) && (
-                <Button text="Add Qulifications" height="40px" width="300px" onClick={handleOpenAddQulification} />
+                <ButtonMain text="Add Qulifications" height="35px" width="230px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenAddQulification} icon={<AddIcon/>}/>
             )}
         </div>
         <div className='doctor-profile-container'>
@@ -404,7 +411,7 @@ function DoctorProfile() {
                             <input  type="text" name="h_email" value={h_email} onChange={onChange} />
                         </div>
                         <div className='PIedit-savebutton'>
-                            <SubTextButton text="Add" type='submit' height="28px" width="200px" />
+                            <ButtonMain text="Add" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<AddIcon />}/>
                         </div>
                     </form>
                 </Card>
@@ -477,7 +484,7 @@ function DoctorProfile() {
                             <input  type="text" name="h_email" value={editWorkAtData.h_email} onChange={(e) => setEditWorkAtData({...editWorkAtData, h_email: e.target.value})} required/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <SubTextButton text="Update & Save" type='submit' height="28px" width="200px" />
+                            <ButtonMain text="Update & Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<SendIcon />}/>
                         </div>
                     </form>
                 </Card>
@@ -499,7 +506,7 @@ function DoctorProfile() {
                             <input  type="text" name="eduLevel" value={eduLevel} onChange={onChangeAddQulification} required/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <SubButton text="Add" type='submit' height="28px" width="200px" />
+                            <ButtonMain text="Add" type='submit' height="28px" width="200px" icon={<AddIcon />}/>
                         </div>
                     </form>
                 </Card>
@@ -553,7 +560,7 @@ function DoctorProfile() {
                             <input  type="text" name="specialistArea" value={editDoctorProfileData.specialistArea} onChange={(e) => setEditDoctorProfileData({...editDoctorProfileData, specialistArea: e.target.value})} required/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <SubTextButton text="Update & Save" type='submit' height="28px" width="200px" />
+                            <ButtonMain text="Update & Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<SendIcon />} />
                         </div>
                     </form>
                 </Card>

@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './DoctorAddTreatment.css';
-import Button from '../../../components/BaseButton-component/Button';
 import SubButton from '../../../components/BaseButton-component/SubButton';
 import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 import Notification from '../../../components/AlertNotification-component/Notification';
 import { LuSearch, LuSendHorizonal, LuChevronRight, LuX, LuCheck } from "react-icons/lu";
 import Card from '../../../components/BaseCard-component/Card';
+import { ReactComponent as DoctorOne } from '../../../assets/Doctor1.svg';
+import AddIcon from '@mui/icons-material/Add';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import axios from 'axios';
+import ButtonMain from '../../../components/BaseButton-component/Button';
+import { green, yellow } from '@mui/material/colors';
+
+const greenMain = green.A400;
+const greenHover = green.A700;
+const yellowMain = yellow.A400;
+const yellowHover = yellow.A700;
 
 function DoctorAddTreatment() {
   const doctorID = localStorage.getItem('userId');
@@ -413,12 +423,13 @@ function DoctorAddTreatment() {
                 )}
               </div>
               <div className='button-group'>
-                <SubTextButton text="View Medical History" height="40px" width="300px" />
-                <Button text="Add New Treatment" height="40px" width="300px" onClick={handleOpneNewTreatment}/>
+                <ButtonMain text="View Medical History" height="35px" width="300px" variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<ImportContactsIcon />}/>
+                <ButtonMain text="Add New Treatment" height="35px" width="300px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpneNewTreatment} icon={<AddIcon />}/>
               </div>
             </div>
           ) : (
             <div className='isSelectPatient-false'>
+                <DoctorOne width="20%" height="30%" />
                 <div className='noteone'>No patient selected</div>
                 <div  className='notetwo'>Please choose a patient to schedule a new treatment plan.</div>
             </div>
@@ -474,11 +485,11 @@ function DoctorAddTreatment() {
                       <textarea  type="text" name="prescription" value={newTreatmentForm.prescription} onChange={handletreatmetInputChange} required/>
                     </div>
                     <div className='parttwo-prescription'>
-                      <SubTextButton text="Add Prescription (img)" height="35px" width="200px"/>
+                      <ButtonMain text="Add Prescription (img)" height="28px" width="250px" variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<AddIcon />}/>
                       <div className='prescription-img'>prescription.jpj</div>
                     </div>
                     <div className='parttwo-medicalcheckup'>
-                      <SubTextButton text="Add Medical CheckUp" height="35px" width="200px" onClick={handelOpenAddCheckupform}/>
+                      <ButtonMain text="Add Medical CheckUp" height="28px" width="235px" onClick={handelOpenAddCheckupform} variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<AddIcon />}/>
                       {isOpenAddCheckupForm && (
                         <div className='addcheckup-form'>
                          <div className='addcheckup-content'>
@@ -492,8 +503,8 @@ function DoctorAddTreatment() {
                           </div>
                           </div> 
                           <div className='addcheckup-button'>
-                            <SubTextButton text="Add" height="25px" width="80px" onClick={handelAddCheckup}/>
-                            <SubTextButton text="Close" height="25px" width="80px" onClick={handelCloseAddCheckupform}/>
+                            <ButtonMain text="Close" height="25px" width="80px" onClick={handelCloseAddCheckupform} variant="outlined" color="error"/>
+                            <ButtonMain text="Add" height="25px" width="80px" onClick={handelAddCheckup} variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                           </div>
                         </div> 
                       )}
@@ -513,7 +524,7 @@ function DoctorAddTreatment() {
                       </div>
                     </div>
                     <div className='parttwo-treatmentplan'>
-                      <SubTextButton text="Add Treatment Plan" height="35px" width="200px" onClick={handleOpenAddTreatmentForm}/>
+                      <ButtonMain text="Add Treatment Plan" height="28px" width="235px" onClick={handleOpenAddTreatmentForm} variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<AddIcon />}/>
                     </div>
                     {isOpenAddTreatmentForm && (
                         <div className='addtreatment-form'>
@@ -564,8 +575,8 @@ function DoctorAddTreatment() {
                             </div>
                           </div>
                           <div className='addtreatment-button'>
-                            <SubTextButton text="Add" height="25px" width="80px" onClick={handleAddTreatment} />
-                            <SubTextButton text="Close" height="25px" width="80px" onClick={handleCloseAddTreatmentForm}/>
+                            <ButtonMain text="Close" height="25px" width="80px" onClick={handleCloseAddTreatmentForm} variant="outlined" color="error"/>
+                            <ButtonMain text="Add" height="25px" width="80px" onClick={handleAddTreatment}  variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                           </div>
                         </div> 
                       )}
@@ -634,7 +645,7 @@ function DoctorAddTreatment() {
                 <div className='hospital-info'>
                   <div className='form-part-Two'>
                     <div className='selectclinic-button'>
-                      <SubTextButton text="Select The Clinic" height="35px" width="200px" onClick={handlleOpenSelectClinic}/>
+                      <ButtonMain text="Select The Clinic" height="28px" width="200px" onClick={handlleOpenSelectClinic} variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<AddIcon />}/>
                       {isOpenSelectClinic && (
                         <div className='addtreatment-form'>
                             <div className='clinic-list'>
@@ -687,7 +698,7 @@ function DoctorAddTreatment() {
                   </div>
                 </div>
                 <div className='form-submitbutton'>
-                  <SubTextButton text="Create" height="35px" width="200px" onClick={handleSubmitNewTreatmentForm} />
+                  <ButtonMain text="Create" height="35px" width="200px" onClick={handleSubmitNewTreatmentForm}  variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<AddCircleIcon />}/>
                 </div>    
               </div>
             </div>

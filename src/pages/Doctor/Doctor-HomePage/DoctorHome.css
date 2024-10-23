@@ -1,0 +1,64 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.section-one {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.welcome-card {
+    width: 55vw;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    background-color: rgba(17, 255, 0, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-svg {
+    border-radius: 15px;
+    overflow: hidden;
+}    
+
+.welcome-card .wlcomecontent {
+    width: 32vw;
+    padding: 20px 30px; 
+}
+
+.wlcomecontent .welcome-Wish {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.wlcomecontent .welcome-name {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.welcom-right-card {
+    width: 20vw;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    background-color: rgba(17, 255, 0, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section-two {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-two .two-partone {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

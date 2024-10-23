@@ -23,11 +23,22 @@
     width: 100vw;
     height: 80vh;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.3rem;
+    text-align: center;
     font-weight: 400;
     color: #a5a5a5;
+}
+
+.patient-OngoingTreatment-container-false .msg-one {
+    margin-top: 10px;
+    font-size: 1.4rem;
+}
+
+.patient-OngoingTreatment-container-false .msg-two {
+    font-size: 1.1rem;
 }
 
 .card-container .t_card-item {

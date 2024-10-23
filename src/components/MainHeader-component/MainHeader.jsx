@@ -35,9 +35,10 @@ const MainHeader = ({location, firstname, lastname}) => {
       '/patient/medical-history' : 'Medical History',
       '/patient/calendar' : 'Calendar',
       '/patient/profile' : 'Profile',
-      '/doctor/home': 'Home',
+      '/doctor/landing': 'Home',
       '/doctor/patients-over-view' : "Patient's Over View",
       '/doctor/add-treatment' : 'Shedule Treatments',
+      '/doctor/notifications' : 'Notifications',
       '/doctor/profile' : 'Profile',
     };
     return pageTitles[location] || '';

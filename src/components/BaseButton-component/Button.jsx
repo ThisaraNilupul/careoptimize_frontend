@@ -1,13 +1,28 @@
 import React from 'react';
-import './CustomButton.css';
+import Button from '@mui/material/Button';
 
-
-const Button = ({text, height, width, onClick}) => {
+const ButtonMain = ({text, height, width, onClick , icon, variant, bgColor, bgHoverColor, color}) => {
   return (
-    <button className='custom-button' style={{height: height , width: width}} onClick={onClick}>
-        {text}
-    </button>
+    <div>
+      <Button variant={variant}  color={color} endIcon={icon}
+          sx={{
+          backgroundColor: bgColor,
+          width: width, 
+          height: height, 
+          '&:hover': {
+            backgroundColor: bgHoverColor,
+          }
+        }}
+
+        onClick={onClick}
+      >
+      {text}
+      </Button>
+    </div>  
   )
 }
 
-export default Button
+export default ButtonMain;
+
+
+// variant="contained"

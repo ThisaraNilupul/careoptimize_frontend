@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../../components/BaseCard-component/Card';
 import './PatientProfile.css';
-import Button from '../../../components/BaseButton-component/Button';
 import SubButton from '../../../components/BaseButton-component/SubButton';
 import SubTextButton from '../../../components/BaseButton-component/SubTextButton';
 import CloseButton from '../../../components/BaseButton-component/CloseButton';
 import Notification from '../../../components/AlertNotification-component/Notification';
 import { LuPlus, LuPencilLine, LuListOrdered, LuFileText, LuX, LuTrash2, LuHeartPulse } from "react-icons/lu";
 import axios from 'axios';
+import { green, yellow, red } from '@mui/material/colors';
+import ButtonMain from '../../../components/BaseButton-component/Button';
+import AddIcon from '@mui/icons-material/Add';
+
+const redMain = red.A400;
+const redHover = red.A700;
+const greenMain = green.A400;
+const greenHover = green.A700;
+const yellowMain = yellow.A400;
+const yellowHover = yellow.A700;
 
 function PatientProfile() {
     const [patinerProfileData, setPatientProfileData] = useState({
@@ -394,9 +403,9 @@ function PatientProfile() {
     <div className='patient-profile'>
         <div className='patient-profile-button-container'>
          {(!patinerProfileData.biodata.bloodType || !patinerProfileData.biodata.height || !patinerProfileData.biodata.weight) && (
-            <Button text="Add Medical Data" height="40px" width="300px" onClick={handleOpenAddMBData} />
+            <ButtonMain text="Add Medical Data" height="35px" width="220px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenAddMBData} icon={<AddIcon />}/>
         )}
-        <Button text="Add Relative" height="40px" width="300px" onClick={handleOpenAddRelative}/>
+        <ButtonMain text="Add Relative" height="35px" width="220px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenAddRelative} icon={<AddIcon />}/>
         </div>
         <div className='patient-profile-container'>
             <Card width="56%" height="76vh">
@@ -528,7 +537,7 @@ function PatientProfile() {
                             <input type="text" name="weight" value={editPIData.weight} onChange={(e) => setEditPIData({...editPIData, weight: e.target.value})}/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <SubTextButton text="Edit & Save" type='submit' height="28px" width="200px" />
+                            <ButtonMain text="Edit & Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                         </div>
                     </form>
                 </Card>
@@ -546,7 +555,7 @@ function PatientProfile() {
                             <textarea  type="text" name="issue"  value={issue}  onChange={(e) => setIssue(e.target.value)} required/>
                         </div>
                         <div className='healthissueadd-button'>
-                            <SubTextButton text="Save" type='submit' height="28px" width="200px" />
+                            <ButtonMain text="Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                         </div>
                     </form>
                 </Card>
@@ -564,7 +573,7 @@ function PatientProfile() {
                           <textarea  type="text" name="issue"  value={issueDescription}  onChange={(e) => setIssueDescription(e.target.value)} required/>
                       </div>
                       <div className='healthissueadd-button'>
-                          <SubTextButton text="Save" type='submit' height="28px" width="200px" />
+                          <ButtonMain text="Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                       </div>
                   </form>
               </Card>
@@ -679,7 +688,7 @@ function PatientProfile() {
                             <input type="text" name="relationship" value={relationship} onChange={onChange} required/>
                         </div>
                         <div className='relative-savebutton'>
-                         <SubTextButton text="Save" type='submit' height="28px" width="200px" />
+                         <ButtonMain text="Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                         </div>
                     </form>
                 </Card>
@@ -733,7 +742,7 @@ function PatientProfile() {
                             <input type="text" name="relationship" value={editRelativeData.relationship} onChange={(e) => setEditRelativeData({...editRelativeData, relationship: e.target.value})} required/>
                         </div>
                         <div className='relative-savebutton'>
-                        <SubTextButton text="Edit & Save" type='submit' height="28px" width="200px" />
+                        <ButtonMain text="Edit & Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                     </div>
                     </form>
                 </Card>
@@ -769,7 +778,7 @@ function PatientProfile() {
                             <input type="text"  name="weight" value={weight} onChange={onChangeMBData} required/>
                         </div>
                         <div className='relative-savebutton'>
-                            <SubTextButton text="Save" type='submit' height="28px" width="200px" />
+                            <ButtonMain text="Save" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover}/>
                         </div>
                     </form>
                 </Card>
