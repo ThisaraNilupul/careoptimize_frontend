@@ -31,7 +31,6 @@ export const AppRoutes = [
   //doctor routes
   { path: '/doctor/profile', component: <DoctorProfile />},
   { path: '/doctor/landing', component: <DoctorHome />},
-  { path: '/doctor/add-treatment', component: <DoctorAddTreatment />},
+  { path: '/doctor/add-treatment', component: <PatientsOverView />},
   { path: '/doctor/notifications', component: <DoctorNotifications /> },
-  { path: '/doctor/patients-over-view', component: <PatientsOverView />}
 ];
