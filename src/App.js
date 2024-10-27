@@ -34,8 +34,7 @@ function App() {
     } else if (role === 'D') {
       setMenuItems([
         { name: 'Home', path: '/doctor/landing', icon: <CiHome /> },
-        { name: 'Patinets Over-View', path: '/doctor/patients-over-view', icon: <CiMemoPad />},
-        { name: 'Schedule-Treatments', path: '/doctor/add-treatment', icon: <CiStethoscope /> },
+        { name: 'Schedule-Treatments', path: '/doctor/add-treatment', icon: <CiStethoscope />},
         { name: 'Notifications', path: '/doctor/notifications', icon: <CiBellOn /> },
         { name: 'Profile', path: '/doctor/profile', icon: <CiUser /> },
       ])
