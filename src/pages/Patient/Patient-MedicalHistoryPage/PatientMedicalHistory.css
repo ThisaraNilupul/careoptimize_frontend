@@ -58,6 +58,18 @@
     background-color: #00e676;
 }
 
+.Checkup-yeargroup {
+    margin-bottom: 8px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+    background-color: #f7ff19;
+}
+
 .yeargroup .i-year {
     display: flex;
     justify-content: left;
@@ -89,6 +101,23 @@
     margin-right: 3px;
     font-weight: 500;
     color: #000000;
+}
+
+.checkup-list .checkup {
+    margin: 3px 0px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    background-color: #f1f1f1;
+}
+
+.checkup .checkup-name {
+    width: 18vw;
+}
+
+.checkup .checkup-date {
+    width: 8vw;
 }
 
 .download-copy-title {
@@ -132,7 +161,7 @@
 }
 
 .doctor-info .adoctor-info {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .doctor-info .adclinic-info {
@@ -322,4 +351,52 @@
     display: flex;
     justify-content: center;
 
+}
+
+
+.Checkupinfo-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.Checkupinfo-container .checkup-info {
+    padding: 20px;
+    width: 33vw;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(253, 255, 105);
+}
+
+.checkup-info .title {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.checkup-detalis .detail-item {
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.detail-item .checkup-name {
+    margin-right: 5px;
+    width: 8vw;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+.checkup-info .checkup-detalis {
+    padding: 5px;
+}
+
+.Checkupinfo-container .doctor-info {
+    padding: 20px;
+    width: 33vw;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(195, 255, 180);
 }
