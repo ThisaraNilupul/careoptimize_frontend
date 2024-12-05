@@ -403,12 +403,12 @@ function PatientProfile() {
     <div className='patient-profile'>
         <div className='patient-profile-button-container'>
          {(!patinerProfileData.biodata.bloodType || !patinerProfileData.biodata.height || !patinerProfileData.biodata.weight) && (
-            <ButtonMain text="Add Medical Data" height="35px" width="220px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenAddMBData} icon={<AddIcon />}/>
+            <ButtonMain text="Add Medical Data" height="28px" width="220px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenAddMBData} icon={<AddIcon />}/>
         )}
-        <ButtonMain text="Add Relative" height="35px" width="220px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenAddRelative} icon={<AddIcon />}/>
+        <ButtonMain text="Add Relative" height="28px" width="220px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} onClick={handleOpenAddRelative} icon={<AddIcon />}/>
         </div>
         <div className='patient-profile-container'>
-            <Card width="56%" height="76vh">
+            <Card width="56%" height="78vh">
                 <div className='card-title'>Personal info  <SubButton icon={<LuPencilLine />} height="30px" width="60px" onClick={handlePIeditButtonClick} /></div>
                 <div className='card-content'>
                     <div className='content-item'>
@@ -473,7 +473,7 @@ function PatientProfile() {
                     
                 </div>
             </Card>
-            <Card width="42%" height="76vh">
+            <Card width="42%" height="78vh">
                 <div className='card-title'>My Relatives</div>
                 <div className='relativecard-content'>
                     <div className='relativecontent-item'>

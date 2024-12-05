@@ -14,11 +14,13 @@ import PatientNotification from '../pages/Patient/Patient-NotificationPage/Patie
 import PatientMedicalHistory from '../pages/Patient/Patient-MedicalHistoryPage/PatientMedicalHistory';
 import LandingPage from '../components/Landing-component/LandingPage';
 import DoctorNotifications from '../pages/Doctor/Doctor-NotificationPage/DoctorNotifications';
+import Verification from '../pages/RegisterPage/Verification';
 
 export const AppRoutes = [
   //patient routes
   { path: '/login', component: <LoginPage /> },
   { path: '/signup', component: <RegisterPage /> },
+  { path: '/verify', component: <Verification /> },
   { path: '/landing', component: <LandingPage />},
   { path: '/patient/home', component: <PatientHome /> },
   { path: '/patient/appointments', component: <PatientAppointment /> },

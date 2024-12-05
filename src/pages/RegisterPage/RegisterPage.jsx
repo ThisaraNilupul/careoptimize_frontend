@@ -2,8 +2,13 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './RegisterPage.css';
+import ButtonMain from '../../components/BaseButton-component/Button';
 import LoadingLeft from '../../components/loading-left-component/LoadingLeft';
 import Notification from '../../components/AlertNotification-component/Notification';
+import { green} from '@mui/material/colors';
+
+const greenMain = green.A400;
+const greenHover = green.A700;
 
 function RegisterPage() {
   const [roleV, setRoleV] = useState('P');
@@ -59,14 +64,15 @@ function RegisterPage() {
           console.log('response', response);
           const {token} = response.data;
           localStorage.setItem('token', token);
+          localStorage.setItem('email', formData.email);
           setNotification({
             status: 'success',
             message: response.data.msg || 'Registration successful',
             backgroundColor: 'rgba(117, 248, 132, 1)',
           })
           setTimeout(() => {
-            navigate('/login');
-          }, 500);
+            navigate('/verify');
+          }, 1000);
       } catch (error) {
         let errorMessage = 'An error occurred. Please try again.';
     
@@ -162,7 +168,7 @@ function RegisterPage() {
                     <input type='password' name='password' value={password} onChange={onChange} required/>
                   </div>  
                 </div>    
-                <button type="submit">Register</button>
+                <ButtonMain type='submit' text="Signup" height="35px" width="430px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} />
             </form>
             <div className='Registerpagelinks'>
               <p>allready have an account</p>

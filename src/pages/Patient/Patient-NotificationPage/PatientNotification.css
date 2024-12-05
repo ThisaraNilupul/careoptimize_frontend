@@ -10,6 +10,12 @@
     gap: 20px;
 }
 
+.searchbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
 .searchbar-container .searchbar-button {
     display: flex;
     flex-wrap: wrap;
