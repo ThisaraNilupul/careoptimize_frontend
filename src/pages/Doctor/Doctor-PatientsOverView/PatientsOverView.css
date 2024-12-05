@@ -89,6 +89,9 @@
 }
 
 .leftside .patient-list-container {
+    height: 56vh;
+    max-height: 56vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }

@@ -290,7 +290,6 @@ function PatientsOverView() {
       });
     }finally {
       setIsSubmitting(false);
-      
     }
 
   }

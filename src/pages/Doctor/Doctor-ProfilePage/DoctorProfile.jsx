@@ -506,7 +506,7 @@ function DoctorProfile() {
                             <input  type="text" name="eduLevel" value={eduLevel} onChange={onChangeAddQulification} required/>
                         </div>
                         <div className='PIedit-savebutton'>
-                            <ButtonMain text="Add" type='submit' height="28px" width="200px" icon={<AddIcon />}/>
+                            <ButtonMain text="Add" type='submit' height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<AddIcon />}/>
                         </div>
                     </form>
                 </Card>

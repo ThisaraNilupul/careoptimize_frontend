@@ -11,6 +11,12 @@
     gap: 20px;
 }
 
+.medicalhistory .filter{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .medicalhistory-conten {
     display: flex;
     flex-wrap: wrap;
@@ -31,6 +37,24 @@
 }
 
 .treatmenthistory-container-false {
+    height: 68vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #999;
+    background-color: #f1f1f1;
+}
+
+.checkupshistory-container {
+    height: 68vh;
+    max-height: 68vh;
+    overflow-y: auto;
+}
+
+.checkupshistory-container-false {
     height: 68vh;
     display: flex;
     justify-content: center;
@@ -400,3 +424,30 @@
     border-radius: 10px;
     background-color: rgb(195, 255, 180);
 }
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.filter-container .yearsetter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.filter-container .dategroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.filter-container .filterbutton {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

@@ -4,8 +4,141 @@
     box-sizing: border-box;
 }
 
-.patientHome {
+.patient-section-one {
+    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.pwelcome-card {
+    margin-bottom: 10px;
+    width: 56vw;
+    height: 25vh;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    background-color: rgba(17, 255, 0, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-svg {
+    border-radius: 15px;
+    overflow: hidden;
+}    
+
+.pwelcome-card .pwlcomecontent {
+    width: 32vw;
+    padding: 20px 30px; 
+}
+
+.pwlcomecontent .pwelcome-Wish {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.pwlcomecontent .pwelcome-name {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.patient-section-two {
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-section-two .ptwo-partone {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.smallcards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.notification-count {
+    margin-top: 60px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.biodata-content {
+    margin: 15px 0 10px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bloodtype,
+.biodata,
+.bmi {
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+}
+
+.bloodtype-value {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: rgb(255, 0, 0);
+}
+
+.biodatavalue,
+.bmivalue {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.bmiresult {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(0, 142, 0);
+}
+
+.ongoingtreatment-title {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: left;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+.unreadnotification-content {
+    height: 19vh;
+    max-height: 19vh;
+    overflow-y: auto;
+}
+
+.unreadnotification-title {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: left;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+.unreadnotification-item {
+    margin-left: 20px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.unreadnotification-meaasge {
+    width: 60vw;
 }

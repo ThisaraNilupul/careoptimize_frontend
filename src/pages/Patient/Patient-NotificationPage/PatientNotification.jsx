@@ -4,8 +4,9 @@ import Card from '../../../components/BaseCard-component/Card';
 import { CiMail, CiChat1, CiBellOn, CiMedicalClipboard, CiSettings } from "react-icons/ci";
 import './PatientNotification.css'
 import ButtonMain from '../../../components/BaseButton-component/Button';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import DeleteIcon from '@mui/icons-material/Delete';
 import CachedIcon from '@mui/icons-material/Cached';
+import Tooltip from '@mui/material/Tooltip';
 import { green, yellow, red } from '@mui/material/colors';
 
 const redMain = red.A400;
@@ -20,16 +21,16 @@ function PatientNotification() {
     const [notifications, setNotifications] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    useEffect(() => {
-        const fetchNotifications = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5000/api/patient/notifications/${userID}`);
-                setNotifications(response.data);
-            } catch (error) {
-                console.error('Error fetching notifications:', error);
-            }
-        };
+    const fetchNotifications = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/patient/notifications/${userID}`);
+            setNotifications(response.data);
+        } catch (error) {
+            console.error('Error fetching notifications:', error);
+        }
+    };
 
+    useEffect(() => {
         fetchNotifications();
     }, []);
 
@@ -66,8 +67,10 @@ function PatientNotification() {
     <div className='patientNotifications'>
         <div className='searchbar-container'>
             <div className='searchbar-button'>
-                <ButtonMain text="Apply Filter" height="28px" width="200px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} icon={<FilterAltIcon />}/>
-                <ButtonMain text="Refresh" height="28px" width="200px" variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} icon={<CachedIcon />}/>
+                <ButtonMain text="Refresh" height="28px" width="200px" variant="contained" color="#000000" bgColor={yellowMain} bgHoverColor={yellowHover} onClick={fetchNotifications} icon={<CachedIcon />}/>
+                <Tooltip disableFocusListener title="Delete all read notifications" arrow>
+                    <ButtonMain text="Delete " height="28px" width="200px" variant="contained" color="#000000" bgColor={redMain} bgHoverColor={redHover} icon={<DeleteIcon />}/>
+                </Tooltip>
             </div>
         </div>
         <Card width="81vw" height="78vh">

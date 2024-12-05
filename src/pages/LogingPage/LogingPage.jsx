@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ButtonMain from '../../components/BaseButton-component/Button';
 import LoadingLeft from '../../components/loading-left-component/LoadingLeft';
 import Notification from '../../components/AlertNotification-component/Notification';
 import './LogingPage.css';
+import { green} from '@mui/material/colors';
+
+const greenMain = green.A400;
+const greenHover = green.A700;
 
 function LogingPage() {
   const [formData, setFormDate] = useState({
@@ -72,7 +77,7 @@ function LogingPage() {
             <form onSubmit={onSubmit}>
                 <input type='text' name='username' value={username} onChange={onChange} placeholder='Username' required/>
                 <input type='password' name='password' value={password} onChange={onChange} placeholder='Password' required/>
-                <button type='submit'>Log in</button>
+                <ButtonMain type='submit' text="Login" height="35px" width="430px" variant="contained" color="#000000" bgColor={greenMain} bgHoverColor={greenHover} />
             </form>
             <div className='links'>
               <a href='#'>Forgot your password?</a>
